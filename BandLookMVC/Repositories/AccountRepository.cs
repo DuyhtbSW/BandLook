@@ -35,7 +35,7 @@ public class AccountRepository : IAccountRepository
 `email`,
 `status`)
 VALUES
-(1, @username, @password, @email, 1);
+(2, @username, @password, @email, 1);
 ";
 
             await conn.ExecuteAsync(sql, new { request.Username, request.Password, request.Email });
