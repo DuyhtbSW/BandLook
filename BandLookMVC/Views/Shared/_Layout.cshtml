@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var username = Context.Session.GetString("Username");
+}
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 
@@ -71,7 +74,7 @@
                                                  id="navbarSupportedContent">
                                                 <ul class="navigation clearfix">
                                                     <li class="current">
-                                                        <a href="#">Trang chủ</a>
+                                                        <a href="/Home">Trang chủ</a>
                                                     </li>
                                                     <li >
                                                         <a href="#">Diễn đàn</a>
@@ -93,10 +96,16 @@
                                                     <li class="">
                                                         <a href="#">Dịch vụ</a>
                                                     </li>
-                                                    <li>
-                                                        <a href="/Auth/Login">Đăng nhập</a>
-                                                    </li>
-                                                </ul>
+                                                    
+                                                                    @if (string.IsNullOrEmpty(username))
+                                                                    {
+                                                                        <li><a href="/Auth/Login">Đăng nhập</a></li>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <li>Xin chào, @username</li>
+                                                                    }
+                                                                </ul>
                                             </div>
                                         </nav>
                                         <!-- Main Menu End-->

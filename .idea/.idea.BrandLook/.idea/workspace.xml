@@ -14,6 +14,10 @@
   <component name="ChangeListManager">
     <list default="true" id="93aa79e8-273b-417b-ada8-d67a579718f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/BandLookMVC.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/BandLookMVC.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Entities/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Entities/Account.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Auth/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Auth/Login.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" afterDir="false" />
     </list>
@@ -45,29 +49,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.BandLookMVC: http.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Launch Settings Profile.BrandLook: http.executor&quot;: &quot;Run&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.BandLookMVC: http.executor": "Debug",
+    ".NET Launch Settings Profile.BrandLook: http.executor": "Run",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "develop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\hatda\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\hatda\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\hatda\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\hatda\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\hatda\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\hatda\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.BandLookMVC: http">
     <configuration name="BandLookMVC: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BandLookMVC/BandLookMVC.csproj" />
@@ -171,7 +175,8 @@
       <workItem from="1716306115547" duration="2119000" />
       <workItem from="1716392725378" duration="4546000" />
       <workItem from="1716478041472" duration="7101000" />
-      <workItem from="1716565854045" duration="3937000" />
+      <workItem from="1716565854045" duration="4911000" />
+      <workItem from="1716572183216" duration="1507000" />
     </task>
     <servers />
   </component>
@@ -192,5 +197,63 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/AuthController.cs</url>
+          <line>32</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\AuthController.cs" initialLine="29" containingFunctionPresentation="Method 'Login'">
+            <startOffsets>
+              <option value="723" />
+            </startOffsets>
+            <endOffsets>
+              <option value="796" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/AuthController.cs</url>
+          <line>26</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\AuthController.cs" initialLine="26" containingFunctionPresentation="Method 'Login'">
+            <startOffsets>
+              <option value="569" />
+            </startOffsets>
+            <endOffsets>
+              <option value="614" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/AccountRepository.cs</url>
+          <line>20</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\AccountRepository.cs" initialLine="20" containingFunctionPresentation="Method 'Login'">
+            <startOffsets>
+              <option value="611" />
+            </startOffsets>
+            <endOffsets>
+              <option value="704" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/AuthController.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\AuthController.cs" initialLine="28" containingFunctionPresentation="Method 'Login'">
+            <startOffsets>
+              <option value="628" />
+            </startOffsets>
+            <endOffsets>
+              <option value="649" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
