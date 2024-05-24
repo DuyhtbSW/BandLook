@@ -1,0 +1,307 @@
+﻿@using BandLookMVC.Response
+@using BrandLook.Entities
+@{
+    var list4Artists = ViewBag.List4Artists as List<ListArtistResponse>;
+    var list3Artists = ViewBag.List3Artists as List<ListArtistResponse>;
+    var listProduct = ViewBag.ListProduct as List<Product>;
+    var list8Product = ViewBag.List8Product as List<Product>;
+}
+<!-- End Main Header -->
+<main id="main">
+
+<!-- Widget Slider -->
+<section class="slider relative">
+    <div class="swiper mySwiper">
+        <div class="swiper-wr~er">
+            <div class="slider-home1 relative overflow-hidden swiper-slide">
+                <div class="silider-image">
+                    <img src="assets/images/slide/slide1.jpg" alt="Image" class="image-slide">
+                    <img src="assets/images/slide/mask-slide.png" alt="Image" class="mask-slide">
+                    <img src="assets/images/slide/mask-fly.png" alt="Image" class="mask-flane">
+                    <div class="booking-title tf-anime-rorate">
+                        <p class="booking">Booking</p>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="slider-content">
+                    <div class="tf-container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <span
+                                    class="sub-title text-main font-yes fs-28-46 fadeInDown wow">
+                                    Khám phá
+                                </span>
+                                <h1 class="title-slide text-white mb-32 fadeInDown wow">
+                                    Nghệ sĩ hoàn hảo cho
+                                    <span class="animationtext clip text-main">
+                                        <span class="cd-words-wr~er">
+                                            <span class="item-text is-visible">Campain của bạn</span>
+                                            <span class="item-text is-hidden">Campain của bạn</span>
+                                        </span>
+                                    </span>
+                                </h1>
+                                <p class="des text-white mb-45 fadeInDown wow">
+                                    Chào mừng tới với BandLook! Chúng tôi cung cấp các dịch vụ booking nghệ sĩ thuận tiện cho bạn
+                                </p>
+                                <div class="btn-group">
+                                    <a href="#" class="btn-main fadeInDown wow">
+                                        <p class="btn-main-text">Bắt đầu</p>
+                                        <p class="iconer">
+                                            <i class="icon-arrow-right"></i>
+                                        </p>
+                                    </a>
+                                    <a href="#" class="btn-w-wa fadeInDown wow">
+                                        Về chúng tôi
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- Widget Slider -->
+
+<!-- Widget Tourpackage -->
+<section class="tour-package pd-main">
+<div class="tf-container w-1456">
+<div class="row">
+<div class="col-lg-12">
+<div class="center m0-auto w-text-heading">
+    <span class="sub-title-heading text-main mb-15 fadeInUp wow">
+        Khám phá
+    </span>
+    <h2 class="title-heading mb-40 fadeInUp wow">
+        Các nghệ sĩ tuyệt vời
+        <span
+            class="text-gray font-yes">
+            của
+        </span>chúng tôi
+    </h2>
+</div>
+<div class="tab-tour-list">
+<div class="tab-content" id="myTabContent">
+<div class="tab-pane fade show active" id="new-york-tab-pane" role="tabpanel"
+     aria-labelledby="new-york-tab" tabindex="0">
+<div class="row">
+  @for (int i = 0; i < list4Artists.Count; i++)
+  {
+
+      <div class="col-sm-6 col-lg-3">
+          <div class="tour-listing wow fadeInUp animated "
+               data-wow-delay="0.1s">
+              <a href="tour-single.html" class="tour-listing-image">
+                  <div class="badge-top flex-two">
+                      <span class="feature">Nổi bật</span>
+
+                  </div>
+                  <img src="@list4Artists[i].Image" style="height: 24rem; object-fit: cover;"
+                       alt="Image Listing">
+
+              </a>
+              <div class="tour-listing-content">
+                  <span class="tag-listing">Đánh giá cao</span>
+                  <span class="map">
+                      @list4Artists[i].Job
+                  </span>
+                  <h3 class="title-tour-list">
+                      <a href="tour-single.html">
+                          @list4Artists[i].Fullname
+                      </a>
+                      
+                      <span>@list4Artists[i].Rating</span>
+                  </h3>
+          
+                  <div class="flex-two">
+                      <div class="price-box flex-three">
+                          <p> <span class="price-sale">VND @list4Artists[i].Catxe</span></p>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  }
+</div>
+<div class="row wow fadeInUp">
+    <div class="col-lg-12 center mt-44">
+        <a href="archieve-tour.html" class="btn-main">
+            <p class="btn-main-text">Xem tất cả</p>
+            <p class="iconer">
+                <i class="icon-13"></i>
+            </p>
+        </a>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+<!-- Widget Tourpackage -->
+
+<!-- Widget destination -->
+<section class="widget-destination">
+    <div class="tf-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center m0-auto w-text-heading mb-40">
+                    <span class="sub-title-heading text-main mb-15 fadeInUp wow">
+                        Khám phá sản phẩm nổi bật
+
+                    </span>
+                    <h2 class="title-heading fadeInUp wow">Các sản phẩm tuyệt vời của chúng tôi</h2>
+                </div>
+            </div>
+        </div>
+        <div class="grid-three-destination">
+             @for (int i = 0; i < listProduct.Count; i++)
+             {
+                 <div class="tf-widget-destination wow fadeInUp animated " data-wow-delay="0.1s">
+                     <a href="single-destination.html" class="destination-imgae">
+                         <span class="tour">Nổi bật</span>
+                         <img src="@listProduct[i].Image" alt="" style="height: 27rem; object-fit: cover;">
+                     </a>
+                     <div class="destination-content">
+                         <span class="nation">@listProduct[i].Name</span>
+                         <div class="flex-two btn-destination">
+                             <h6 class="title">
+                                 <a href="single-destination.html">@listProduct[i].Price</a>
+                             </h6>
+                         </div>
+
+                     </div>
+                 </div>
+             }
+
+        </div>
+    </div>
+</section>
+<!-- Widget destination -->
+<!-- Widget Adventure -->
+<section class="widget-adventure">
+<div class="tf-container">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="mb-40">
+            <span class="sub-title-heading text-main mb-15 fadeInUp wow">
+                Khám phá
+
+            </span>
+            <h2 class="title-heading fadeInUp wow">Nhạc cụ nổi bật</h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="adventure-content">
+
+<div class="tab-content" id="nav-tabContent">
+<div class="tab-pane fade show active" id="nav-hiking" role="tabpanel"
+     tabindex="0">
+    <div class="row">
+        @for (int i = 0; i < list8Product.Count; i++)
+        {
+            <div class="col-6 col-sm-6 col-lg-3">
+                <div class="tf-adventure flex-three mb-43">
+                    <a href="tour-single.html" class="adventure-image">
+                        <img src="@list8Product[i].Image" alt="">
+                    </a>
+                    <div class="adventure-image">
+                        <span class="tour-ad">@list8Product[i].Category</span>
+                        <h6 class="title-ad">
+                            <a
+                                href="tour-single.html">
+                                @list8Product[i].Name
+                            </a>
+                        </h6>
+                        <p class="price-ad text-main">VND @list8Product[i].Price</p>
+                    </div>
+                </div>
+            </div>
+        }
+        
+     
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Widget Adventure -->
+
+
+<!-- Widget Banner Blog -->
+<section class="pd-main">
+    <div class="tf-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center m0-auto w-text-heading">
+                    <span class="sub-title-heading text-main mb-15 wow fadeInUp animated">
+                        Khám phá
+
+                    </span>
+                    <h2 class="title-heading mb-40 wow fadeInUp animated">
+                        Nghệ sĩ được đánh giá cao 
+
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @for (int i = 0; i < list3Artists.Count; i++)
+            {
+                <div class="col-md-4 wow fadeInUp animated " data-wow-delay="0.2s">
+                    <div class="tf-widget-blog blog-style">
+                        <a href="blog-details.html" class="blog-image">
+                            <img src="@list3Artists[i].Image" style="height: 25rem; object-fit: cover;" alt="">
+                            <div class="category-blog">
+                                <span>@list3Artists[i].Job</span>
+                            </div>
+                        </a>
+                        <div class="blog-content">
+                            <ul class="meta-list flex-three">
+                                <li>
+                                    <a href="blog-details.html">
+                                        <span>@list3Artists[i].Dob</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="blog-details.html">
+                                        <span>@list3Artists[i].Rating sao</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="entry-title">
+                                <a href="blog-details.html">
+                                    @list3Artists[i].Fullname
+                                </a>
+                            </h3>
+                            <p class="des">
+                                @list3Artists[i].Phone - @list3Artists[i].Address
+                            </p>
+                            <a href="blog-details.html" class="btn-read-more">
+                                Xem thêm
+                              
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+           
+            
+        </div>
+
+    </div>
+</section>
+</main>
