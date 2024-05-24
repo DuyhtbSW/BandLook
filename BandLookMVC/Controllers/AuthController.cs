@@ -43,5 +43,21 @@ public class AuthController : Controller
         return View(request);
     }
     
+    public IActionResult Register()
+    {
+        return View();
+    }
+    
+    [HttpPost]
+    public IActionResult Register(RegisterRequest request)
+    {
+        if (ModelState.IsValid)
+        {
+            _accountRepository.Register(request);
+        }
+
+        return View("Login");
+    }
+    
     
 }

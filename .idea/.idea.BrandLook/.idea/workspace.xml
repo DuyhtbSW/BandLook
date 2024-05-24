@@ -13,13 +13,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93aa79e8-273b-417b-ada8-d67a579718f9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/BandLookMVC.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/BandLookMVC.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Entities/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Entities/Account.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/AccountRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/AccountRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IAccountRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IAccountRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Response/LoginResponse.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Auth/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Auth/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +49,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.BandLookMVC: http.executor": "Debug",
+    ".NET Launch Settings Profile.BandLookMVC: http.executor": "Run",
     ".NET Launch Settings Profile.BrandLook: http.executor": "Run",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -176,7 +174,7 @@
       <workItem from="1716392725378" duration="4546000" />
       <workItem from="1716478041472" duration="7101000" />
       <workItem from="1716565854045" duration="4911000" />
-      <workItem from="1716572183216" duration="1507000" />
+      <workItem from="1716572183216" duration="2406000" />
     </task>
     <servers />
   </component>
@@ -209,7 +207,7 @@
               <option value="723" />
             </startOffsets>
             <endOffsets>
-              <option value="796" />
+              <option value="788" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
@@ -229,13 +227,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/AccountRepository.cs</url>
-          <line>20</line>
+          <line>22</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\AccountRepository.cs" initialLine="20" containingFunctionPresentation="Method 'Login'">
             <startOffsets>
-              <option value="611" />
+              <option value="632" />
             </startOffsets>
             <endOffsets>
-              <option value="704" />
+              <option value="721" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
@@ -252,6 +250,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/AccountRepository.cs</url>
+          <line>23</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\AccountRepository.cs" initialLine="21" containingFunctionPresentation="Method 'Login'">
+            <startOffsets>
+              <option value="730" />
+            </startOffsets>
+            <endOffsets>
+              <option value="731" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
