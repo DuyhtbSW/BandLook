@@ -14,11 +14,8 @@
   <component name="ChangeListManager">
     <list default="true" id="93aa79e8-273b-417b-ada8-d67a579718f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrandLook.sln" beforeDir="false" afterPath="$PROJECT_DIR$/BrandLook.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrandLook/BrandLook.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BrandLook/BrandLook.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrandLook/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrandLook/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrandLook/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrandLook/appsettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Auth/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Auth/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +171,7 @@
       <workItem from="1716306115547" duration="2119000" />
       <workItem from="1716392725378" duration="4546000" />
       <workItem from="1716478041472" duration="7101000" />
-      <workItem from="1716565854045" duration="2824000" />
+      <workItem from="1716565854045" duration="3937000" />
     </task>
     <servers />
   </component>
