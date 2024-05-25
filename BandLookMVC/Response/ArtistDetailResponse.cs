@@ -1,9 +1,9 @@
-﻿using System.Globalization;
-
+﻿
 namespace BandLookMVC.Response;
 
 public class ArtistDetailResponse
 {
+    public int Id { get; set; }
     public string Fullname { get; set; }
     public string Catxe { get; set; }
     public string Job { get; set; }

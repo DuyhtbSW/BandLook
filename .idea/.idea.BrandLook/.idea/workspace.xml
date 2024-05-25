@@ -15,11 +15,9 @@
     <list default="true" id="93aa79e8-273b-417b-ada8-d67a579718f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Entities/Booking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Entities/Booking.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IArtistRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IArtistRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Response/ArtistDetailResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Response/ArtistDetailResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Artist/Detail.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Artist/Detail.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Home/Home.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Home/Home.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +175,7 @@
       <workItem from="1716478041472" duration="7101000" />
       <workItem from="1716565854045" duration="4911000" />
       <workItem from="1716572183216" duration="2860000" />
-      <workItem from="1716654286043" duration="6468000" />
+      <workItem from="1716654286043" duration="8697000" />
     </task>
     <servers />
   </component>
@@ -204,16 +202,71 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs</url>
-          <line>36</line>
-          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\ArtistController.cs" initialLine="36" containingFunctionPresentation="Method 'Detail'">
+          <line>38</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\ArtistController.cs" initialLine="38" containingFunctionPresentation="Method 'GetBooking'">
             <startOffsets>
-              <option value="1081" />
+              <option value="1038" />
             </startOffsets>
             <endOffsets>
-              <option value="1104" />
+              <option value="1112" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="10" />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs</url>
+          <line>40</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\ArtistController.cs" initialLine="40" containingFunctionPresentation="Method 'GetBooking'">
+            <startOffsets>
+              <option value="1123" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1145" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Views/Artist/Detail.cshtml</url>
+          <line>145</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Views\Artist\Detail.cshtml" initialLine="145" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Views/Artist/Detail.cshtml</url>
+          <line>146</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Views\Artist\Detail.cshtml" initialLine="146" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Views/Artist/Detail.cshtml</url>
+          <line>148</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Views\Artist\Detail.cshtml" initialLine="148" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

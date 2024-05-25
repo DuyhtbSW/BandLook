@@ -19,23 +19,28 @@ public class ArtistController : Controller
     {
         public ArtistDetailResponse Artist { get; set; }
         public List<Schedule> Schedule { get; set; }
-        public List<Booking> Bookings { get; set; }
     }
 
     public async Task<IActionResult> Detail(int id, string? selectedDate)
     {
         var artist = await _artistRepository.Detail(id);
         var schedule = await _artistRepository.GetArtistSchedule(id);
-        var bookings = await _artistRepository.GetArtistBooking(id, selectedDate); 
         var viewModel = new ArtistDetailViewModel
         {
             Artist = artist,
             Schedule = schedule,
-            Bookings = bookings 
         };
         
         return View(viewModel);
     }
+    
+    public async Task<IActionResult> GetBooking(int id, string selectedDate)
+    {
+        var bookings = await _artistRepository.GetArtistBooking(id, selectedDate); 
+
+        return Json(bookings);
+    }
+
 
 
 }

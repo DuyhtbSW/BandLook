@@ -138,37 +138,59 @@
 </div>
 
 <script>
-    document.getElementById("booking-date").addEventListener("change", function () {
-        var selectedDate = this.value;
-        var schedule = @Html.Raw(Json.Serialize(Model.Schedule));
-        var slotsContainer = document.getElementById("time-slots");
-        slotsContainer.innerHTML = "";
+   document.getElementById("booking-date").addEventListener("change", async function () {
+       var selectedDate = this.value;
+       var urlParams = new URLSearchParams(window.location.search);
+       var artistId = urlParams.get('id');
+       var url = `/Artist/GetBooking?id=${artistId}&selectedDate=${selectedDate}`; 
+       var response = await fetch(url); 
+       var bookings = await response.json();
+       var slotsContainer = document.getElementById("time-slots");
+       slotsContainer.innerHTML = "";
+   
+       // Lấy danh sách lịch trình từ model
+       var schedule = @Html.Raw(Json.Serialize(Model.Schedule));
+   
+       var dateSchedule = schedule.filter(s => new Date(s.start_date).toISOString().split('T')[0] === selectedDate);
+   
+       if (dateSchedule.length > 0) {
+           dateSchedule.forEach(slot => {
+               var startTime = slot.start_time.split(':');
+               var endTime = slot.end_time.split(':');
+               var startHour = parseInt(startTime[0]);
+               var endHour = parseInt(endTime[0]);
+   
+               for (var hour = startHour; hour < endHour; hour++) {
+                   var nextHour = hour + 1;
+                   var slotLabel = `${hour}:00 - ${nextHour}:00`;
+                   var isBooked = checkIfSlotIsBooked(hour, bookings); 
+   
+                   slotsContainer.innerHTML += `
+<input id="slot-${hour}" type="checkbox" name="timeslot" value="${hour}" ${isBooked ? 'disabled' : ''}">
+<label for="slot-${hour}" class="${isBooked ? 'disabled' : ''}" style="${isBooked ? 'color: gray;' : ''}">${slotLabel}</label>`
+               }
+           });
+       } else {
+           slotsContainer.innerHTML = "<p>Không có lịch trình cho ngày này</p>";
+       }
+       
+       function checkIfSlotIsBooked(hour, bookings) {
+           for (var i = 0; i < bookings.length; i++) {
+               var booking = bookings[i];
+               var bookingStartHour = parseInt(booking.start_time.split(':')[0]);
+               var bookingEndHour = parseInt(booking.end_time.split(':')[0]);
+   
+               if (hour >= bookingStartHour && hour < bookingEndHour) {
+                   return true;
+               }
+           }
+           return false;
+       }
+   });
 
-        var dateSchedule = schedule.filter(s => new Date(s.start_date).toISOString().split('T')[0] === selectedDate);
 
-        if (dateSchedule.length > 0) {
-            dateSchedule.forEach(slot => {
-                var startTime = slot.start_time.split(':');
-                var endTime = slot.end_time.split(':');
-                var startHour = parseInt(startTime[0]);
-                var endHour = parseInt(endTime[0]);
-
-                for (var hour = startHour; hour < endHour; hour++) {
-                    var nextHour = hour + 1;
-                    var slotLabel = `${hour}:00 - ${nextHour}:00`;
-
-                    slotsContainer.innerHTML += `
-                        <input id="slot-${hour}" type="checkbox" name="timeslot" value="${hour}">
-                        <label for="slot-${hour}">${slotLabel}</label>`;
-                }
-            });
-        } else {
-            slotsContainer.innerHTML = "<p>Không có lịch trình cho ngày này</p>";
-        }
-    });
+    
 </script>
-
-
 
 
 </div>

@@ -111,10 +111,9 @@ WHERE artist_id = @artistId";
     {
         using (var conn = _connectionFactory.CreateConnection())
         {
-            var sql = @"SELECT DATE_ADD(start_date, INTERVAL 1 DAY) as start_date, 
-       DATE_ADD(end_date, INTERVAL 1 DAY) as end_date
+            var sql = @"SELECT start_date, end_date, start_time, end_time
 FROM booking_artist
-WHERE start_date = @startDate AND artist_id = @artistId;";
+WHERE  start_date = @startDate AND artist_id = @artistId;";
             
             return (await conn.QueryAsync<Booking>(sql, new {startDate, artistId })).ToList();
         }
