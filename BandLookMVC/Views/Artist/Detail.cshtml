@@ -1,18 +1,187 @@
-﻿@model TModel
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model BandLookMVC.Controllers.ArtistController.ArtistDetailViewModel
 
-@{
-    Layout = null;
-}
+<main id="main">
 
-<!DOCTYPE html>
+<section>
+    <div class="tf-container full">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="../assets/images/page/breakcrumb2.jpg" alt="image">
+            </div>
+        </div>
+    </div>
+</section>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
+<section class="tour-single">
+<div class="tf-container">
+<div class="row">
+    <div class="col-lg-12">
+        <ul class="nav justify-content-between tab-tour-single" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-information-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-information" type="button" role="tab"
+                        aria-controls="pills-information" aria-selected="true">
+                     Ca hát
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-tour-planing-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-tour-planing" type="button" role="tab"
+                        aria-controls="pills-tour-planing" aria-selected="false">
+                     Nhảy
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-location-share-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-location-share" type="button" role="tab"
+                        aria-controls="pills-location-share" aria-selected="false">
+                    Diễn xuất
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-reviews-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-reviews" type="button" role="tab"
+                        aria-controls="pills-reviews" aria-selected="false">
+                   Dẫn chương trình
+                </button>
+            </li>
+          
+        </ul>
+    </div>
 </div>
-</body>
-</html>
+<div class="row pd-main">
+<div class="col-lg-12">
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-information" role="tabpanel"
+     aria-labelledby="pills-information-tab" tabindex="0">
+<div class="row mb-50">
+    <div class="col-lg-12">
+        <div class="inner-heading-wrap flex-two">
+            <div class="inner-heading">
+                <span class="feature">Nổi bật</span>
+                <h2 class="title">@Model.Artist.Fullname</h2>
+                <ul class="flex-three list-wrap-heading">
+                    <li class="flex-three">
+                        Đánh giá:
+                        <span> @Model.Artist.Rating sao</span>
+                    </li>
+                    <li class="flex-three">
+                        Số điện thoại:
+                        <span> @Model.Artist.Phone</span>
+                    </li>
+                    <li class="flex-three">
+                        Địa chỉ:
+                        <span> @Model.Artist.Address</span>
+                    </li>
+
+
+                </ul>
+
+            </div>
+            <div class="inner-price">
+          
+                <p class="price-sale text-main">
+                   Cát xê: @Model.Artist.Catxe VND
+                
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="row mb-40 image-gallery-single">
+    @foreach (var image in Model.Artist.Images)
+    {
+        <div class="col-6 col-sm-3">
+            <img src="@image" alt="image">
+        </div>
+    }
+</div>
+<div class="row">
+<div class="col-lg-8">
+    <div class="information-content-tour">
+        <div class="description-wrap mb-40">
+            <span class="description">Mô tả:</span>
+            <p class="des">
+                @Model.Artist.Description
+            </p>
+        </div>
+        
+ 
+    </div>
+</div>
+<div class="col-lg-4">
+    <div class="side-bar-right">
+        <div class="sidebar-widget">
+            <h6 class="block-heading">Book nghệ sĩ này </h6>
+            <form action="/" id="form-book-tour">
+                <div class="input-wrap mb-30">
+                    <input type="date" id="booking-date">
+                </div>
+                                    <span class="label">Lịch trình:</span>
+
+                <div class="flex-two mb-30">
+                    <div class="radio" id="time-slots">
+                        <!-- Time slots will be inserted here -->
+                    </div>
+                </div>
+                <div class="flex-two mb-40">
+                    <span class="label">Cát xê</span>
+                    <span class="total text-main">@Model.Artist.Catxe VND</span>
+                </div>
+                <button type="submit">Thanh toán</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("booking-date").addEventListener("change", function () {
+        var selectedDate = this.value;
+        var schedule = @Html.Raw(Json.Serialize(Model.Schedule));
+        var slotsContainer = document.getElementById("time-slots");
+        slotsContainer.innerHTML = "";
+
+        var dateSchedule = schedule.filter(s => new Date(s.start_date).toISOString().split('T')[0] === selectedDate);
+
+        if (dateSchedule.length > 0) {
+            dateSchedule.forEach(slot => {
+                var startTime = slot.start_time.split(':');
+                var endTime = slot.end_time.split(':');
+                var startHour = parseInt(startTime[0]);
+                var endHour = parseInt(endTime[0]);
+
+                for (var hour = startHour; hour < endHour; hour++) {
+                    var nextHour = hour + 1;
+                    var slotLabel = `${hour}:00 - ${nextHour}:00`;
+
+                    slotsContainer.innerHTML += `
+                        <input id="slot-${hour}" type="checkbox" name="timeslot" value="${hour}">
+                        <label for="slot-${hour}">${slotLabel}</label>`;
+                }
+            });
+        } else {
+            slotsContainer.innerHTML = "<p>Không có lịch trình cho ngày này</p>";
+        }
+    });
+</script>
+
+
+
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+
+
+
+</main>

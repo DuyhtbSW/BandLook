@@ -94,7 +94,7 @@
       <div class="col-sm-6 col-lg-3">
           <div class="tour-listing wow fadeInUp animated "
                data-wow-delay="0.1s">
-              <a href="tour-single.html" class="tour-listing-image">
+              <a href="@Url.Action("Detail", "Artist", new { id = list4Artists[i].Id })" class="tour-listing-image">
                   <div class="badge-top flex-two">
                       <span class="feature">Nổi bật</span>
 
@@ -109,11 +109,11 @@
                       @list4Artists[i].Job
                   </span>
                   <h3 class="title-tour-list">
-                      <a href="tour-single.html">
+                      <a href="@Url.Action("Detail", "Artist", new { id = list4Artists[i].Id })">
                           @list4Artists[i].Fullname
                       </a>
                       
-                      <span>@list4Artists[i].Rating</span>
+                      <span> - @list4Artists[i].Rating sao</span>
                   </h3>
           
                   <div class="flex-two">
@@ -263,7 +263,7 @@
             {
                 <div class="col-md-4 wow fadeInUp animated " data-wow-delay="0.2s">
                     <div class="tf-widget-blog blog-style">
-                        <a href="blog-details.html" class="blog-image">
+                        <a href="@Url.Action("Detail", "Artist", new { id = list3Artists[i].Id })" class="blog-image">
                             <img src="@list3Artists[i].Image" style="height: 25rem; object-fit: cover;" alt="">
                             <div class="category-blog">
                                 <span>@list3Artists[i].Job</span>
@@ -272,25 +272,25 @@
                         <div class="blog-content">
                             <ul class="meta-list flex-three">
                                 <li>
-                                    <a href="blog-details.html">
+                                    <a href="@Url.Action("Detail", "Artist", new { id = list3Artists[i].Id })">
                                         <span>@list3Artists[i].Dob</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="blog-details.html">
+                                    <a href="@Url.Action("Detail", "Artist", new { id = list3Artists[i].Id })">
                                         <span>@list3Artists[i].Rating sao</span>
                                     </a>
                                 </li>
                             </ul>
                             <h3 class="entry-title">
-                                <a href="blog-details.html">
+                                <a href="@Url.Action("Detail", "Artist", new { id = list3Artists[i].Id })">
                                     @list3Artists[i].Fullname
                                 </a>
                             </h3>
                             <p class="des">
                                 @list3Artists[i].Phone - @list3Artists[i].Address
                             </p>
-                            <a href="blog-details.html" class="btn-read-more">
+                            <a href="@Url.Action("Detail", "Artist", new { id = list3Artists[i].Id })" class="btn-read-more">
                                 Xem thêm
                               
                             </a>

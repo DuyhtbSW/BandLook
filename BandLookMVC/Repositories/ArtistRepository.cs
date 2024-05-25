@@ -1,4 +1,5 @@
 ﻿using BandLookMVC.Response;
+using BrandLook.Entities;
 using Dapper;
 
 namespace BandLookMVC.Repositories;
@@ -57,4 +58,67 @@ public class ArtistRepository : IArtistRepository
          return  await conn.QueryAsync<ListArtistResponse>(sql, new {top});
         }
     }
+    
+    public async Task<ArtistDetailResponse> Detail(int id)
+    {
+        using (var conn = _connectionFactory.CreateConnection())
+        {
+            var sql = @"
+            SELECT a.id, a.fullname, a.job, a.address, a.catxe, a.description, a.phone, a.rating, a.dob, am.image
+            FROM artist a 
+            JOIN artist_image am ON a.id = am.artist_id 
+            WHERE a.id = @id";
+
+            var artistDictionary = new Dictionary<int, ArtistDetailResponse>();
+
+            var result = await conn.QueryAsync<ArtistDetailResponse, string, ArtistDetailResponse>(
+                sql,
+                (artist, image) =>
+                {
+                    if (!artistDictionary.TryGetValue(id, out var currentArtist))
+                    {
+                        currentArtist = artist;
+                        currentArtist.Images = new List<string>();
+                        artistDictionary.Add(id, currentArtist);
+                    }
+
+                    currentArtist.Images.Add(image);
+                    return currentArtist;
+                },
+                new { id },
+                splitOn: "image");
+
+            return artistDictionary.Values.FirstOrDefault();
+        }
+    }
+    
+    public async Task<List<Schedule>> GetArtistSchedule(int artistId)
+    {
+        using (var conn = _connectionFactory.CreateConnection())
+        {
+            var sql = @"SELECT id, artist_id, 
+       DATE_ADD(start_date, INTERVAL 1 DAY) as start_date, 
+       DATE_ADD(end_date, INTERVAL 1 DAY) as end_date, 
+       start_time, end_time 
+FROM artist_carlender 
+WHERE artist_id = @artistId";
+            
+            return (await conn.QueryAsync<Schedule>(sql, new { artistId })).ToList();
+        }
+    }
+    
+    public async Task<List<Booking>> GetArtistBooking(int artistId, string startDate)
+    {
+        using (var conn = _connectionFactory.CreateConnection())
+        {
+            var sql = @"SELECT DATE_ADD(start_date, INTERVAL 1 DAY) as start_date, 
+       DATE_ADD(end_date, INTERVAL 1 DAY) as end_date
+FROM booking_artist
+WHERE start_date = @startDate AND artist_id = @artistId;";
+            
+            return (await conn.QueryAsync<Booking>(sql, new {startDate, artistId })).ToList();
+        }
+    }
+
+
 }
