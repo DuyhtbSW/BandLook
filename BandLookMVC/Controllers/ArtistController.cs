@@ -21,7 +21,7 @@ public class ArtistController : Controller
         public List<Schedule> Schedule { get; set; }
     }
 
-    public async Task<IActionResult> Detail(int id, string? selectedDate)
+    public async Task<IActionResult> Detail(int id)
     {
         var artist = await _artistRepository.Detail(id);
         var schedule = await _artistRepository.GetArtistSchedule(id);

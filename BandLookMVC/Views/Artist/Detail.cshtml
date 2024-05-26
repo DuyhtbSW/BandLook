@@ -82,7 +82,7 @@
             <div class="inner-price">
           
                 <p class="price-sale text-main">
-                   Cát xê: @Model.Artist.Catxe VND
+                   Cát xê: @Model.Artist.Catxe VND /slot
                 
                 </p>
             </div>
@@ -115,13 +115,12 @@
 <div class="col-lg-4">
     <div class="side-bar-right">
         <div class="sidebar-widget">
-            <h6 class="block-heading">Book nghệ sĩ này </h6>
-            <form action="/" id="form-book-tour">
+            <h6 class="block-heading">Book nghệ sĩ này</h6>
+            <form action="/Payment/Pay" method="GET" id="form-book-tour">
                 <div class="input-wrap mb-30">
-                    <input type="date" id="booking-date">
+                    <input type="date" id="booking-date" name="selectedDate">
                 </div>
-                                    <span class="label">Lịch trình:</span>
-
+                <span class="label">Lịch trình:</span>
                 <div class="flex-two mb-30">
                     <div class="radio" id="time-slots">
                         <!-- Time slots will be inserted here -->
@@ -129,7 +128,10 @@
                 </div>
                 <div class="flex-two mb-40">
                     <span class="label">Cát xê</span>
-                    <span class="total text-main">@Model.Artist.Catxe VND</span>
+                    <span class="total text-main" id="total-price">@Model.Artist.Catxe VND</span>
+                    <input type="hidden" name="totalPrice" id="total-price-hidden" value="@Model.Artist.Catxe"/>
+                     <input type="hidden" name="id" value="@Model.Artist.Id"/>
+                    <input type="hidden" name="selectedTimeSlots" id="selected-time-slots-hidden"/>
                 </div>
                 <button type="submit">Thanh toán</button>
             </form>
@@ -137,60 +139,75 @@
     </div>
 </div>
 
+
 <script>
-   document.getElementById("booking-date").addEventListener("change", async function () {
-       var selectedDate = this.value;
-       var urlParams = new URLSearchParams(window.location.search);
-       var artistId = urlParams.get('id');
-       var url = `/Artist/GetBooking?id=${artistId}&selectedDate=${selectedDate}`; 
-       var response = await fetch(url); 
-       var bookings = await response.json();
-       var slotsContainer = document.getElementById("time-slots");
-       slotsContainer.innerHTML = "";
+    document.getElementById("booking-date").addEventListener("change", async function () {
+        var selectedDate = this.value;
+        var urlParams = new URLSearchParams(window.location.search);
+        var artistId = urlParams.get('id');
+        var url = `/Artist/GetBooking?id=${artistId}&selectedDate=${selectedDate}`; 
+        var response = await fetch(url); 
+        var bookings = await response.json();
+        var slotsContainer = document.getElementById("time-slots");
+        slotsContainer.innerHTML = "";
    
-       // Lấy danh sách lịch trình từ model
-       var schedule = @Html.Raw(Json.Serialize(Model.Schedule));
+        var schedule = @Html.Raw(Json.Serialize(Model.Schedule));
+        var catxe = @Model.Artist.Catxe;
    
-       var dateSchedule = schedule.filter(s => new Date(s.start_date).toISOString().split('T')[0] === selectedDate);
+        var dateSchedule = schedule.filter(s => new Date(s.start_date).toISOString().split('T')[0] === selectedDate);
    
-       if (dateSchedule.length > 0) {
-           dateSchedule.forEach(slot => {
-               var startTime = slot.start_time.split(':');
-               var endTime = slot.end_time.split(':');
-               var startHour = parseInt(startTime[0]);
-               var endHour = parseInt(endTime[0]);
+        if (dateSchedule.length > 0) {
+            dateSchedule.forEach(slot => {
+                var startTime = slot.start_time.split(':');
+                var endTime = slot.end_time.split(':');
+                var startHour = parseInt(startTime[0]);
+                var endHour = parseInt(endTime[0]);
    
-               for (var hour = startHour; hour < endHour; hour++) {
-                   var nextHour = hour + 1;
-                   var slotLabel = `${hour}:00 - ${nextHour}:00`;
-                   var isBooked = checkIfSlotIsBooked(hour, bookings); 
+                for (var hour = startHour; hour < endHour; hour++) {
+                    var nextHour = hour + 1;
+                    var slotLabel = `${hour}:00 - ${nextHour}:00`;
+                    var isBooked = checkIfSlotIsBooked(hour, bookings); 
    
-                   slotsContainer.innerHTML += `
-<input id="slot-${hour}" type="checkbox" name="timeslot" value="${hour}" ${isBooked ? 'disabled' : ''}">
-<label for="slot-${hour}" class="${isBooked ? 'disabled' : ''}" style="${isBooked ? 'color: gray;' : ''}">${slotLabel}</label>`
-               }
-           });
-       } else {
-           slotsContainer.innerHTML = "<p>Không có lịch trình cho ngày này</p>";
-       }
-       
-       function checkIfSlotIsBooked(hour, bookings) {
-           for (var i = 0; i < bookings.length; i++) {
-               var booking = bookings[i];
-               var bookingStartHour = parseInt(booking.start_time.split(':')[0]);
-               var bookingEndHour = parseInt(booking.end_time.split(':')[0]);
-   
-               if (hour >= bookingStartHour && hour < bookingEndHour) {
-                   return true;
-               }
-           }
-           return false;
-       }
-   });
+                    slotsContainer.innerHTML += `
+                        <input id="slot-${hour}" type="checkbox" name="timeslot" value="${hour}" ${isBooked ? 'disabled' : ''} style="${isBooked ? 'opacity: 0.5; pointer-events: none;' : ''}">
+                        <label for="slot-${hour}" class="${isBooked ? 'disabled' : ''}" style="${isBooked ? 'color: gray;' : ''}">${slotLabel}</label>`;
+                }
+            });
 
+            // Thêm sự kiện lắng nghe cho các checkbox
+            document.querySelectorAll('#time-slots input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', updateTotalPrice);
+            });
+        } else {
+            slotsContainer.innerHTML = "<p>Không có lịch trình cho ngày này</p>";
+        }
+   
+        function checkIfSlotIsBooked(hour, bookings) {
+            for (var i = 0; i < bookings.length; i++) {
+                var booking = bookings[i];
+                var bookingStartHour = parseInt(booking.start_time.split(':')[0]);
+                var bookingEndHour = parseInt(booking.end_time.split(':')[0]);
+   
+                if (hour >= bookingStartHour && hour < bookingEndHour) {
+                    return true;
+                }
+            }
+            return false;
+        }
+   
+        function updateTotalPrice() {
+            var selectedSlots = document.querySelectorAll('#time-slots input[type="checkbox"]:checked');
+            var totalPrice = selectedSlots.length * catxe;
+            document.getElementById('total-price').innerText = `${totalPrice} VND`;
+            document.getElementById('total-price-hidden').value = totalPrice;
 
-    
+            // Cập nhật các timeslot đã chọn vào input ẩn
+            var selectedTimeSlots = Array.from(selectedSlots).map(slot => slot.value).join(',');
+            document.getElementById('selected-time-slots-hidden').value = selectedTimeSlots;
+        }
+    });
 </script>
+
 
 
 </div>
