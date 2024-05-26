@@ -71,50 +71,101 @@
                 <p class="fw-bold">Chi tiết thanh toán</p>
                 <p class="dis mb-3">Hoàn thành thông tin dưới đây để tiếp tục thanh toán</p>
             </div>
-            <form action="">
-                <div class="mb-3">
-                    <p class="dis fw-bold mb-2">Email</p>
-                    <input class="form-control" required type="email">
-                </div>
-                <div>
-                    <p class="dis fw-bold mb-2">SDT</p>
-                    <input class="form-control" required type="number">
-                    <div class="my-3 cardname">
-                        <p class="dis fw-bold mb-2">Tên</p>
-                        <input class="form-control" required type="text">
+            <form id="payment-form" action="">
+                <!-- Step 1 -->
+                <div class="step step-1">
+                    <div class="mb-3">
+                        <p class="dis fw-bold mb-2">Email</p>
+                        <input class="form-control" required type="email" id="email">
                     </div>
+                    <div>
+                        <p class="dis fw-bold mb-2">SDT</p>
+                        <input class="form-control" required type="number" id="phone">
+                        <div class="my-3 cardname">
+                            <p class="dis fw-bold mb-2">Tên</p>
+                            <input class="form-control" required type="text" id="name">
+                        </div>
+                        <button type="button" class="btn btn-primary mt-2" onclick="nextStep()">Tiếp tục</button>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="step step-2" style="display:none;">
                     <div class="address">
                         <div class="my-3">
                             <p class="dis fw-bold mb-2">Hình thức thanh toán</p>
                             <div>
-                                <input type="checkbox" id="payment-cash"/>
+                                <input type="radio" id="payment-cash" name="payment-method" value="cash" required/>
                                 <label for="payment-cash">Thanh toán bằng tiền mặt</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="payment-vnpay"/>
+                                <input type="radio" id="payment-vnpay" name="payment-method" value="vnpay" required/>
                                 <label for="payment-vnpay">Thanh toán qua ví VNPay</label>
                             </div>
                             <div>
-                                <input type="checkbox" id="payment-momo"/>
+                                <input type="radio" id="payment-momo" name="payment-method" value="momo" required/>
                                 <label for="payment-momo">Thanh toán qua ví Momo</label>
                             </div>
                         </div>
-
                         <div class="d-flex flex-column dis">
                             <div class="d-flex align-items-center justify-content-between mb-2">
                                 <p class="fw-bold">Tổng</p>
                                 <p class="fw-bold"><span class="fas fa-dollar-sign"></span>@Model.TotalPrice VND</p>
                             </div>
-                            <div class="btn btn-primary mt-2">
-                                Thanh toán<span class="fas fa-dollar-sign px-1"></span>@Model.TotalPrice
-                            </div>
+                            <button type="button" class="btn btn-primary mt-2" onclick="nextStep()">Tiếp tục</button>
+                            <button type="button" class="btn btn-secondary mt-2" onclick="prevStep()">Quay lại</button>
                         </div>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="step step-3" style="display:none;">
+                    <div class="d-flex flex-column dis">
+                        <p class="fw-bold">Mã QR để thanh toán</p>
+                        <img src="" alt="QR Code" class="qr-code-img">
+                        <button type="submit" class="btn btn-primary mt-2">Xác nhận và Thanh toán</button>
+                        <button type="button" class="btn btn-secondary mt-2" onclick="prevStep()">Quay lại</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
+
 </div>
+<script>
+    function nextStep() {
+        var currentStep = document.querySelector('.step:not([style*="display: none"])');
+        var nextStep = currentStep.nextElementSibling;
+    
+        if (validateStep(currentStep)) {
+            currentStep.style.display = 'none';
+            if (nextStep) {
+                nextStep.style.display = 'block';
+            }
+        }
+    }
+    
+    function prevStep() {
+        var currentStep = document.querySelector('.step:not([style*="display: none"])');
+        var prevStep = currentStep.previousElementSibling;
+    
+        if (prevStep) {
+            currentStep.style.display = 'none';
+            prevStep.style.display = 'block';
+        }
+    }
+    
+    function validateStep(step) {
+        var inputs = step.querySelectorAll('input[required]');
+        for (var i = 0; i < inputs.length; i++) {
+            if (!inputs[i].value) {
+                alert('Điền thông tin để tiếp tục');
+                return false;
+            }
+        }
+        return true;
+    }
+
+</script>
 <style>
 * {
     margin: 0;

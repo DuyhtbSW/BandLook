@@ -13,9 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93aa79e8-273b-417b-ada8-d67a579718f9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Artist/Detail.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Artist/Detail.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Payment/Pay.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Payment/Pay.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +172,7 @@
       <workItem from="1716565854045" duration="4911000" />
       <workItem from="1716572183216" duration="2860000" />
       <workItem from="1716654286043" duration="8957000" />
-      <workItem from="1716692026135" duration="6719000" />
+      <workItem from="1716692026135" duration="7578000" />
     </task>
     <servers />
   </component>
