@@ -96,12 +96,12 @@ public class ArtistRepository : IArtistRepository
     {
         using (var conn = _connectionFactory.CreateConnection())
         {
-            var sql = @"SELECT id, artist_id, 
-       DATE_ADD(start_date, INTERVAL 1 DAY) as start_date, 
-       DATE_ADD(end_date, INTERVAL 1 DAY) as end_date, 
-       start_time, end_time 
-FROM artist_carlender 
-WHERE artist_id = @artistId";
+                    var sql = @"SELECT id, artist_id, 
+               DATE_ADD(start_date, INTERVAL 1 DAY) as start_date, 
+               DATE_ADD(end_date, INTERVAL 1 DAY) as end_date, 
+               start_time, end_time 
+                FROM artist_carlender 
+                WHERE artist_id = @artistId";
             
             return (await conn.QueryAsync<Schedule>(sql, new { artistId })).ToList();
         }
@@ -112,12 +112,40 @@ WHERE artist_id = @artistId";
         using (var conn = _connectionFactory.CreateConnection())
         {
             var sql = @"SELECT start_date, end_date, start_time, end_time
-FROM booking_artist
-WHERE  start_date = @startDate AND artist_id = @artistId;";
+                        FROM booking_artist
+                        WHERE  start_date = @startDate AND artist_id = @artistId;";
             
             return (await conn.QueryAsync<Booking>(sql, new {startDate, artistId })).ToList();
         }
     }
+
+    public async Task Update(int artistId, string description, List<string> images)
+    {
+        using (var conn = _connectionFactory.CreateConnection())
+        {
+    
+                    var sql = @"UPDATE `artist`
+                            SET `description` = @description
+                            WHERE `id` = @artistId;";
+                
+                    await conn.ExecuteAsync(sql, new { artistId, description });
+
+                    var deleteImagesSql = @"DELETE FROM `artist_image`
+                                        WHERE `artist_id` = @artistId;";
+                
+                    await conn.ExecuteAsync(deleteImagesSql, new { artistId });
+
+                    var insertImageSql = @"INSERT INTO `artist_image` (`artist_id`, `image`)
+                                       VALUES (@artistId, @imageUrl);";
+                
+                    foreach (var imageUrl in images)
+                    {
+                        await conn.ExecuteAsync(insertImageSql, new { artistId, imageUrl });
+                    }
+        }
+    }
+
+
 
 
 }

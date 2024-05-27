@@ -31,6 +31,8 @@ public class AuthController : Controller
             if (user != null)
             {
                 HttpContext.Session.SetString("Username", user.Result.User_name);
+                HttpContext.Session.SetInt32("Id", user.Result.Id);
+                HttpContext.Session.SetString("Email", user.Result.Email);
 
                 return RedirectToAction("Home", "Home");
             }

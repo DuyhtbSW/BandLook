@@ -82,10 +82,9 @@
                                                     </li>
                                                     <li>
                                                         <a href="#">Về chúng tôi</a>
-
                                                     </li>
                                                     <li>
-                                                        <a href="#">Boooking</a>
+                                                        <a href="#">Booking</a>
 
                                                     </li>
 
@@ -96,16 +95,39 @@
                                                     <li class="">
                                                         <a href="#">Dịch vụ</a>
                                                     </li>
-                                                    
-                                                                    @if (string.IsNullOrEmpty(username))
-                                                                    {
-                                                                        <li><a href="/Auth/Login">Đăng nhập</a></li>
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        <li>Xin chào, @username</li>
-                                                                    }
+
+                                                    @if (string.IsNullOrEmpty(username))
+                                                    {
+                                                        <li>
+                                                            <a href="/Auth/Login">Đăng nhập</a>
+                                                        </li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li>
+                                                            
+                                                            <div class="dropdown account">
+                                                                <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                Xin chào, @username
+                                                                    </a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <a href="/User/Profile">Hồ sơ</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="/User/Calendar">Lịch trình </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="/Auth/Login">Đăng xuất</a>
+                                                                    </li>
                                                                 </ul>
+                                                            </div>
+                                                            <div class="mobile-nav-toggler mobile-button">
+                                                                <i class="icon-bar"></i>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                </ul>
                                             </div>
                                         </nav>
                                         <!-- Main Menu End-->
@@ -212,7 +234,7 @@
                 </ul>
 
             </div>
-         
+
             <div class="footer-newsletter">
                 <h5 class="title">Đăng ký để nhận thông tin</h5>
                 <form action="/" id="footer-form">
@@ -254,7 +276,7 @@
             </div>
         </div>
 
-    
+
     </div>
 </footer>
 <script src="../js/jquery.min.js"></script>

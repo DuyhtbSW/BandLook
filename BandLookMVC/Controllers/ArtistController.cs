@@ -40,7 +40,10 @@ public class ArtistController : Controller
 
         return Json(bookings);
     }
-
-
+    
+    public async Task<IActionResult> List()
+    {
+        return View();
+    }
 
 }
