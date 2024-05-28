@@ -1,18 +1,120 @@
-﻿@model TModel
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model BandLookMVC.Controllers.UserController.ArtistDetailViewModel
 
-@{
-    Layout = null;
-}
+<main id="main">
+    <section>
+        <div class="tf-container full">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="../assets/images/page/breakcrumb2.jpg" alt="image">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!DOCTYPE html>
+    <section class="tour-single">
+        <div class="tf-container">
+            <div class="row pd-main">
+                <div class="col-lg-12">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-information" role="tabpanel"
+                             aria-labelledby="pills-information-tab" tabindex="0">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="side-bar-right">
+                                        <div class="sidebar-widget">
+                                            <h6 class="block-heading">Lịch trình của tôi</h6>
+                                            <form action="/User/UpdateCalendar" method="POST" id="form-book-tour">
+                                                <div class="input-wrap mb-30">
+                                                    <input type="date" id="booking-date" name="selectedDate">
+                                                </div>
+                                                <span class="label">Lịch trình:</span>
+                                                <div class="flex-two mb-30">
+                                                    <div class="radio" id="time-slots">
+                                                        <!-- Time slots will be inserted here -->
+                                                    </div>
+                                                </div>
+                                                <div class="flex-two mb-40">
+                                                    <input type="hidden" name="artistId" value="@Model.Artist.Id"/>
+                                                    <input type="hidden" name="selectedTimeSlots" id="selected-time-slots-hidden"/>
+                                                </div>
+                                                <button type="submit">Cập nhật lịch trống</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+                            <script>
+                                document.getElementById("booking-date").addEventListener("change", async function () {
+                                    var selectedDate = this.value;
+                                    var artistId = @Model.Artist.Id; // Use Razor to inject the artist ID directly
+                                    var url = `/Artist/GetBooking?id=${artistId}&selectedDate=${selectedDate}`;
+                                    var response = await fetch(url);
+                                    var bookings = await response.json();
+                                    var slotsContainer = document.getElementById("time-slots");
+                                    slotsContainer.innerHTML = "";
+
+                                    // Fetch schedule from the model
+                                    var schedule = @Html.Raw(Json.Serialize(Model.Schedule));
+
+                                    // Create 24 slots for the selected day
+                                    for (var hour = 0; hour < 24; hour++) {
+                                        var nextHour = hour + 1;
+                                        var slotLabel = `${hour}:00 - ${nextHour}:00`;
+                                        var isBooked = checkIfSlotIsBooked(hour, bookings);
+                                        var isFree = checkIfSlotIsFree(hour, schedule, selectedDate);
+
+                                        slotsContainer.innerHTML += `
+                                            <input id="slot-${hour}" type="checkbox" name="timeslot" value="${hour}" ${isBooked ? 'disabled' : ''} ${isFree ? 'checked' : ''} style="${isBooked ? 'opacity: 0.5; pointer-events: none;' : ''}">
+                                            <label for="slot-${hour}" class="${isBooked ? 'disabled' : ''}" style="${isBooked ? 'color: gray;' : ''}">${slotLabel}</label>`;
+                                    }
+
+                                    function checkIfSlotIsBooked(hour, bookings) {
+                                        for (var i = 0; i < bookings.length; i++) {
+                                            var booking = bookings[i];
+                                            var bookingStartHour = parseInt(booking.start_time.split(':')[0]);
+                                            var bookingEndHour = parseInt(booking.end_time.split(':')[0]);
+
+                                            if (hour >= bookingStartHour && hour < bookingEndHour) {
+                                                return true;
+                                            }
+                                        }
+                                        return false;
+                                    }
+
+                                    function checkIfSlotIsFree(hour, schedule, selectedDate) {
+                                        for (var i = 0; i < schedule.length; i++) {
+                                            var slot = schedule[i];
+                                            var slotDate = new Date(slot.start_date).toISOString().split('T')[0];
+
+                                            if (slotDate === selectedDate) {
+                                                var slotStartHour = parseInt(slot.start_time.split(':')[0]);
+                                                var slotEndHour = parseInt(slot.end_time.split(':')[0]);
+
+                                                if (hour >= slotStartHour && hour < slotEndHour) {
+                                                    return true;
+                                                }
+                                            }
+                                        }
+                                        return false;
+                                    }
+                                });
+
+                                document.getElementById("form-book-tour").addEventListener("submit", function (event) {
+                                    var selectedTimeSlots = [];
+                                    var checkboxes = document.querySelectorAll('input[name="timeslot"]:checked');
+                                    checkboxes.forEach((checkbox) => {
+                                        selectedTimeSlots.push(checkbox.value);
+                                    });
+                                    document.getElementById("selected-time-slots-hidden").value = JSON.stringify(selectedTimeSlots);
+                                });
+                            </script>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

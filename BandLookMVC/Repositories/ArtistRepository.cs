@@ -6,12 +6,14 @@ namespace BandLookMVC.Repositories;
 
 public class ArtistRepository : IArtistRepository
 {
-    private readonly MySqlConnectionFactory _connectionFactory;
-
-    public ArtistRepository(MySqlConnectionFactory connectionFactory)
+    public ArtistRepository(MySqlConnectionFactory connectionFactory, ILogger<ArtistRepository> logger)
     {
         _connectionFactory = connectionFactory;
+        _logger = logger;
     }
+
+    private readonly MySqlConnectionFactory _connectionFactory;
+    private readonly ILogger<ArtistRepository> _logger;
 
     public async Task<IEnumerable<ListArtistResponse>> ListTop(int top)
     {
@@ -107,6 +109,21 @@ public class ArtistRepository : IArtistRepository
         }
     }
     
+    public async Task<List<Schedule>> GetArtistScheduleToUpdate(int artistId)
+    {
+        using (var conn = _connectionFactory.CreateConnection())
+        {
+            var sql = @"SELECT id, artist_id, 
+               start_date, 
+               end_date, 
+               start_time, end_time 
+                FROM artist_carlender 
+                WHERE artist_id = @artistId";
+            
+            return (await conn.QueryAsync<Schedule>(sql, new { artistId })).ToList();
+        }
+    }
+    
     public async Task<List<Booking>> GetArtistBooking(int artistId, string startDate)
     {
         using (var conn = _connectionFactory.CreateConnection())
@@ -142,6 +159,59 @@ public class ArtistRepository : IArtistRepository
                     {
                         await conn.ExecuteAsync(insertImageSql, new { artistId, imageUrl });
                     }
+        }
+    }
+    
+    public async Task<int> DeleteArtistSchedule(int artistId, string date, TimeSpan startTime)
+    {
+        using (var conn = _connectionFactory.CreateConnection())
+        {
+            try
+            {
+                var sql = @"DELETE FROM artist_carlender
+                        WHERE artist_id = @ArtistId 
+                        AND start_date = @Date 
+                        AND start_time = @StartTime";
+
+                var param = new { ArtistId = artistId, Date = date, StartTime = startTime };
+
+                var a = await conn.ExecuteAsync(sql, param);
+                return a;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Error occurred while deleting artist schedule.");
+                throw;
+            }
+        }
+    }
+
+    public async Task<int> AddArtistSchedule(int artistId, string date, string end, TimeSpan startTime, TimeSpan endTime)
+    {
+        var sql = @"INSERT INTO artist_carlender (artist_id, start_date, end_date, start_time, end_time)
+                VALUES (@ArtistId, @StartDate, @EndDate, @StartTime, @EndTime)";
+
+        try
+        {
+            using (var conn = _connectionFactory.CreateConnection())
+            {
+                var parameters = new
+                {
+                    ArtistId = artistId,
+                    StartDate = date,
+                    EndDate = end,
+                    StartTime = startTime,
+                    EndTime = endTime
+                };
+
+                var a = await conn.ExecuteAsync(sql, parameters);
+                return a;
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Error occurred while adding artist schedule.");
+            throw;
         }
     }
 

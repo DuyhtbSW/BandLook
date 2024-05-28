@@ -14,12 +14,12 @@
   <component name="ChangeListManager">
     <list default="true" id="93aa79e8-273b-417b-ada8-d67a579718f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IArtistRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IArtistRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Home/Home.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Home/Home.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/User/Calendar.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/User/Calendar.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/User/Profile.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/User/Profile.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +179,8 @@
       <workItem from="1716572183216" duration="2860000" />
       <workItem from="1716654286043" duration="8957000" />
       <workItem from="1716692026135" duration="8600000" />
-      <workItem from="1716822234209" duration="5520000" />
+      <workItem from="1716822234209" duration="9068000" />
+      <workItem from="1716913915648" duration="5004000" />
     </task>
     <servers />
   </component>
@@ -205,110 +206,281 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs</url>
-          <line>38</line>
-          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\ArtistController.cs" initialLine="38" containingFunctionPresentation="Method 'GetBooking'">
-            <startOffsets>
-              <option value="1016" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1090" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs</url>
-          <line>40</line>
-          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\ArtistController.cs" initialLine="40" containingFunctionPresentation="Method 'GetBooking'">
-            <startOffsets>
-              <option value="1101" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1123" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
-          <line>39</line>
+          <line>40</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="39" containingFunctionPresentation="Method 'Update'">
             <startOffsets>
-              <option value="1044" />
-              <option value="1073" />
+              <option value="1070" />
+              <option value="1099" />
             </startOffsets>
             <endOffsets>
-              <option value="1115" />
-              <option value="1104" />
+              <option value="1141" />
+              <option value="1130" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
-          <line>43</line>
+          <line>44</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="43" containingFunctionPresentation="Method 'Update'">
             <startOffsets>
-              <option value="1155" />
+              <option value="1181" />
             </startOffsets>
             <endOffsets>
-              <option value="1217" />
+              <option value="1243" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
-          <line>44</line>
+          <line>45</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="44" containingFunctionPresentation="Method 'Update'">
             <startOffsets>
-              <option value="1230" />
+              <option value="1256" />
             </startOffsets>
             <endOffsets>
-              <option value="1270" />
+              <option value="1296" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
-          <line>50</line>
+          <line>51</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="50" containingFunctionPresentation="Method 'Update'">
             <startOffsets>
-              <option value="1417" />
+              <option value="1443" />
             </startOffsets>
             <endOffsets>
-              <option value="1461" />
+              <option value="1487" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
-          <line>51</line>
+          <line>52</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="51" containingFunctionPresentation="Method 'Update'">
             <startOffsets>
-              <option value="1474" />
+              <option value="1500" />
             </startOffsets>
             <endOffsets>
-              <option value="1525" />
+              <option value="1551" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
-          <line>52</line>
+          <line>53</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="52" containingFunctionPresentation="Method 'Update'">
             <startOffsets>
-              <option value="1538" />
+              <option value="1564" />
             </startOffsets>
             <endOffsets>
-              <option value="1592" />
+              <option value="1618" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
+          <line>120</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="119" containingFunctionPresentation="Method 'UpdateCalendar'">
+            <startOffsets>
+              <option value="3774" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3984" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
+          <line>118</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="117" containingFunctionPresentation="Method 'UpdateCalendar'">
+            <startOffsets>
+              <option value="3657" />
+              <option value="3690" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3729" />
+              <option value="3727" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
+          <line>107</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="108" containingFunctionPresentation="Method 'UpdateCalendar'">
+            <startOffsets>
+              <option value="3207" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3253" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
+          <line>110</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="111" containingFunctionPresentation="Method 'UpdateCalendar'">
+            <startOffsets>
+              <option value="3352" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3469" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
+          <line>105</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="106" containingFunctionPresentation="Method 'UpdateCalendar'">
+            <startOffsets>
+              <option value="3133" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3170" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
+          <line>112</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="116" containingFunctionPresentation="Method 'UpdateCalendar'">
+            <startOffsets>
+              <option value="3500" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3501" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
+          <line>177</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="177" containingFunctionPresentation="Method 'DeleteArtistSchedule'">
+            <startOffsets>
+              <option value="6580" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6624" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
+          <line>178</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="178" containingFunctionPresentation="Method 'DeleteArtistSchedule'">
+            <startOffsets>
+              <option value="6641" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6650" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
+          <line>206</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="206" containingFunctionPresentation="Method 'AddArtistSchedule'">
+            <startOffsets>
+              <option value="7558" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7607" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
+          <line>207</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="207" containingFunctionPresentation="Method 'AddArtistSchedule'">
+            <startOffsets>
+              <option value="7624" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7633" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
+          <line>197</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="197" containingFunctionPresentation="Method 'AddArtistSchedule'">
+            <startOffsets>
+              <option value="7288" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7540" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
+          <line>122</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="120" containingFunctionPresentation="Method 'UpdateCalendar'">
+            <startOffsets>
+              <option value="4018" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4019" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
+          <line>124</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="122" containingFunctionPresentation="Method 'UpdateCalendar'">
+            <startOffsets>
+              <option value="4033" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4069" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
+          <line>190</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="190" containingFunctionPresentation="Method 'AddArtistSchedule'">
+            <startOffsets>
+              <option value="6988" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7165" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/UserController.cs</url>
+          <line>101</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\UserController.cs" initialLine="101" containingFunctionPresentation="Method 'UpdateCalendar'">
+            <startOffsets>
+              <option value="2995" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3119" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
