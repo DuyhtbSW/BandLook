@@ -69,7 +69,7 @@ public class ArtistRepository : IArtistRepository
             SELECT a.id, a.fullname, a.job, a.address, a.catxe, a.description, a.phone, a.rating, a.dob, am.image
             FROM artist a 
             JOIN artist_image am ON a.id = am.artist_id 
-            WHERE a.id = @id";
+            WHERE a.account_id = @id";
 
             var artistDictionary = new Dictionary<int, ArtistDetailResponse>();
 

@@ -1,0 +1,193 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>BandLook - Admin</title>
+
+    <meta name="author" content="themesflat.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="../app/css/app.css">
+    <link rel="stylesheet" href="../app/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../app/css/map.min.css">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="../assets/images/favico.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/images/favico.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="body header-fixed ">
+
+    <div class="preload preload-container">
+        <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
+            <circle class="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 660" stroke-dashoffset="-330" stroke-linecap="round"></circle>
+            <circle class="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 220" stroke-dashoffset="-110" stroke-linecap="round"></circle>
+            <circle class="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+            <circle class="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
+        </svg>
+    </div>
+
+    <!-- /preload -->
+
+    <div id="wrapper">
+
+        <div id="pagee" class="clearfix">
+
+            <div class="sidebar-dashboard">
+                <div class="db-logo">
+                    <a href="index.html"><span>BandLook</span></a>
+                </div>
+                <div class="db-menu">
+                    <ul>
+                        <li class="active">
+                            <a href="/Home/Home">
+                                <i class="icon-Vector-9"></i>
+                                <span>Tổng quan</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Admin/Request">
+                                <i class="icon-Group-81"></i>
+                                <span>Quản lý yêu cầu</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="add-tour.html">
+                                <i class="icon-Group-91"></i>
+                                <span>Quản lý người dùng</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="my-favorite.html">
+                                <i class="icon-Vector-10"></i>
+                                <span>Quản lý thanh toán</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Auth/Login">
+                                <i class="icon-turn-off-1"></i>
+                                <span>Đăng xuất</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+            <div class="has-dashboard">
+                <!-- Main Header -->
+                <header class="main-header flex">
+                    <!-- Header Lower -->
+                    <div id="header">                   
+                        <div class="header-dashboard">
+                            <div class="tf-container full">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="inner-container flex justify-space align-center">
+                                            <!-- Logo Box -->
+                                            <div class="header-search flex-three">
+                                        
+
+                                            </div>
+                                            <div class="nav-outer flex align-center">
+                                                <!-- Main Menu -->
+                                                <nav class="main-menu show navbar-expand-md">
+                                                    <div class="navbar-collapse collapse clearfix"
+                                                        id="navbarSupportedContent">
+                                                        <ul class="navigation clearfix">
+                                                            
+                                                            
+                                                            
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </nav>
+                                                <!-- Main Menu End-->
+                                            </div>
+                                           
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- End Header Lower -->
+
+
+                    <!-- Mobile Menu  -->
+                    <div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>
+                    <div class="mobile-menu">
+                        <div class="menu-backdrop"></div>
+                        <nav class="menu-box">
+                            <div class="nav-logo"><a href="index.html">
+                                    <img src="assets/images/logo2.png" alt=""></a></div>
+                            <div class="bottom-canvas">
+                                <div class="menu-outer">
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- End Mobile Menu -->
+
+                </header>
+               @RenderBody()
+
+                <footer class="footer footer-dashboard">
+                    <div class="tf-container full">
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <p class="text-white">Made with ❤️ by BandLook.</p>
+                            </div>
+                            <div class="col-xl-6">
+                               
+
+                            </div>
+                        </div>
+
+                    </div>
+                </footer>
+
+                <!-- Bottom -->
+            </div>
+
+        </div>
+        <!-- /#page -->
+    </div>
+
+    <!-- Modal Popup Bid -->
+
+    <a id="scroll-top" class="button-go"></a>
+
+
+
+    <!-- Javascript -->
+    <script src="../app/js/jquery.min.js"></script>
+    <script src="../app/js/jquery.nice-select.min.js"></script>
+    <script src="../app/js/bootstrap.min.js"></script>
+    <script src="../app/js/bootstrap-select.min.js"></script>
+    <script src="../app/js/tinymce/tinymce.min.js"></script>
+    <script src="../app/js/tinymce/tinymce-custom.js"></script>
+    <script src="../app/js/swiper-bundle.min.js"></script>
+    <script src="../app/js/swiper.js"></script>
+    <script src="../app/js/plugin.js"></script>
+    <script src="../app/js/map.min.js"></script>
+    <script src="../app/js/map.js"></script>
+    <script src="../app/js/countto.js"></script>
+    <script src="../app/js/apexcharts.js"></script>
+    <script src="../app/js/line-chart.js"></script>
+    <script src="../app/js/shortcodes.js"></script>
+    <script src="../app/js/main.js"></script>
+
+</body>
+
+</html>

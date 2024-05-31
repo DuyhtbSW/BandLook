@@ -40,6 +40,10 @@ public class PaymentController : Controller
 
         return View(viewModel);
     }
+    [HttpPost]
+    public async Task<IActionResult> Pay()
+    {
+        return RedirectToAction("Home", "Home");    }
 
     private string ConvertToTimeRange(int slot)
     {

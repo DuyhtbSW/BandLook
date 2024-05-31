@@ -1,0 +1,86 @@
+﻿@using BandLookMVC.Response
+
+@{
+    Layout = "_Layout1";
+}
+<main id="main">
+    <section class="profile-dashboard">
+        <div class="inner-header mb-40">
+            <h3 class="title">Quản lý đơn yêu cầu</h3>
+            <p class="des">Quản lý đơn yêu cầu trở thành nghệ sĩ của nguời dùng</p>
+        </div>
+        <div class="my-booking-wrap ">
+            <ul class="booking-table-title flex-three">
+                <li>
+                    <p>Mô tả</p>
+                </li>
+                <li>
+                    <p>Trạng thái</p>
+                </li>
+                <li>
+                    <p>Ngày sinh</p>
+                </li>
+                <li>
+                    <p>Số điện thoại</p>
+                </li>
+                <li>
+                    <p>Địa chỉ</p>
+                </li>
+                <li>
+                    <p>Action</p>
+                </li>
+            </ul>
+            <ul class="booking-table-content mb-60">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <li class="flex-three">
+                        <div class="booking-list flex-three">
+                            <div class="image">
+                                <img src="@Model[i].Image" alt="image">
+                            </div>
+                            <div class="content">
+                                <p class="id">@Model[i].Job</p>
+                                <h6 class="title-booking">
+                                    <a href="#">@Model[i].Fullname</a>
+                                </h6>
+                                <p class="price">@Model[i].Catxe VND</p>
+                            </div>
+                        </div>
+                        <div class="booking-list-table">
+                            @if (Model[i].Status == 1)
+                            {
+                                <p class="status">Đã xác nhận</p>
+                            }
+                            else @if (Model[i].Status == 0)
+                            {
+                                <p class="status" style="background-color: lightgray;">Chưa xử lý</p>
+                            }
+                            else @if (Model[i].Status == -1)
+                            {
+                                <p class="status" style="background-color: red;">Đã từ chối</p>
+                            }
+                        </div>
+                        <div class="booking-list-table">
+                            <p class="date-gues">@Model[i].Dob</p>
+                        </div>
+                        <div class="booking-list-table">
+                            <p class="date-gues">@Model[i].Phone</p>
+                        </div>
+                        <div class="booking-list-table">
+                            <p class="date-gues">@Model[i].Address</p>
+                        </div>
+                        <div class="flex-five action-wrap">
+                            <div class="action flex-five">
+                                <a href="@Url.Action("Confirm", "Admin", new { id = @Model[i].Id})"> <i class="fa-solid fa-square-check"></i></a>
+                            </div>
+                            <div class="action flex-five">
+                                <a href="@Url.Action("Reject", "Admin", new { id = @Model[i].Id})"> <i class="fa-solid fa-circle-xmark"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+
+</main>

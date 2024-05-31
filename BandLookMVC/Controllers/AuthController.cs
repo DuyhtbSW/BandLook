@@ -35,6 +35,11 @@ public class AuthController : Controller
                 HttpContext.Session.SetString("Email", user.Result.Email);
                 HttpContext.Session.SetInt32("RoleId", user.Result.Role_Id);
 
+                if (user.Result.Role_Id == 3)
+                {
+                    return RedirectToAction("Home", "Admin");
+                }
+                
                 return RedirectToAction("Home", "Home");
             }
             else
