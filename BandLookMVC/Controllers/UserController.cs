@@ -9,12 +9,16 @@ namespace BandLookMVC.Controllers;
 public class UserController : Controller
 {
     private readonly IArtistRepository _artistRepository;
+    private readonly IAccountRepository _accountRepository;
+    private readonly IRequestRepository _requestRepository;
 
-    public UserController(IArtistRepository artistRepository)
+    public UserController(IArtistRepository artistRepository, IAccountRepository accountRepository, IRequestRepository requestRepository)
     {
         _artistRepository = artistRepository;
+        _accountRepository = accountRepository;
+        _requestRepository = requestRepository;
     }
-    
+
     public class ProfileViewModel
     {
         public ArtistDetailResponse Artist { get; set; }
@@ -34,6 +38,23 @@ public class UserController : Controller
         };
 
         return View(viewModel);
+    }
+    
+    public async Task<IActionResult> Request()
+    {
+        var id = HttpContext.Session.GetInt32("Id");
+        var user = await _accountRepository.Detail(id.Value);
+        
+        return View(user);
+    }
+    [HttpPost]
+    public async Task<IActionResult> Request(int accountId, string fullname, string catxe, string job, string email, string phone, string address, string description, string image)
+    {
+        _requestRepository.Add(accountId, "");
+
+        _artistRepository.Add(accountId, fullname, catxe, job, email, phone, address, description, image);
+
+        return RedirectToAction("Home", "Home");
     }
     
     [HttpPost]

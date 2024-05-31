@@ -1,5 +1,6 @@
 ﻿@{
     var username = Context.Session.GetString("Username");
+    var roleId = Context.Session.GetInt32("RoleId");
 }
 <!DOCTYPE html>
 
@@ -105,22 +106,37 @@
                                                     else
                                                     {
                                                         <li>
-                                                            
+
                                                             <div class="dropdown account">
                                                                 <a type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                Xin chào, @username
-                                                                    </a>
-                                                                <ul class="dropdown-menu">
-                                                                    <li>
-                                                                        <a href="/User/Profile">Hồ sơ</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="/User/Calendar">Lịch trình </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="/Auth/Login">Đăng xuất</a>
-                                                                    </li>
-                                                                </ul>
+                                                                    Xin chào, @username
+                                                                </a>
+                                                                @if (roleId == 1)
+                                                                {
+                                                                    <ul class="dropdown-menu">
+                                                                        <li>
+                                                                            <a href="/User/Profile">Hồ sơ</a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="/User/Calendar">Lịch trình </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="/Auth/Login">Đăng xuất</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                }
+                                                                else if (roleId == 2)
+                                                                {
+                                                                    <ul class="dropdown-menu">
+                                                                        <li>
+                                                                            <a href="/User/Request">Gửi yêu cầu thành nghệ sĩ</a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="/Auth/Login">Đăng xuất</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                }
+
                                                             </div>
                                                             <div class="mobile-nav-toggler mobile-button">
                                                                 <i class="icon-bar"></i>

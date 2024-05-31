@@ -1,5 +1,4 @@
-﻿using BrandLook.Entities;
-
+﻿
 namespace BandLookMVC.Response;
 
 public class ListArtistResponse

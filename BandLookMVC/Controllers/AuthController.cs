@@ -33,6 +33,7 @@ public class AuthController : Controller
                 HttpContext.Session.SetString("Username", user.Result.User_name);
                 HttpContext.Session.SetInt32("Id", user.Result.Id);
                 HttpContext.Session.SetString("Email", user.Result.Email);
+                HttpContext.Session.SetInt32("RoleId", user.Result.Role_Id);
 
                 return RedirectToAction("Home", "Home");
             }

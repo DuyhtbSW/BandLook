@@ -1,5 +1,4 @@
 ﻿using BandLookMVC.Request;
-using BandLookMVC.Response;
 using BrandLook.Entities;
 using Dapper;
 
@@ -29,16 +28,29 @@ public class AccountRepository : IAccountRepository
         using (var conn = _connectionFactory.CreateConnection())
         {
             var sql = @"INSERT INTO `account`
-(`role_id`,
-`user_name`,
-`password`,
-`email`,
-`status`)
-VALUES
-(2, @username, @password, @email, 1);
-";
+                (`role_id`,
+                `user_name`,
+                `password`,
+                `email`,
+                `status`)
+                VALUES
+                (2, @username, @password, @email, 1);
+                ";
 
             await conn.ExecuteAsync(sql, new { request.Username, request.Password, request.Email });
+        }
+    }
+
+    public async Task<Account> Detail(int id)
+    {
+        using (var conn = _connectionFactory.CreateConnection())
+        {
+            var sql = @"
+            SELECT * FROM Account
+            WHERE id = @id";
+
+            return await conn.QueryFirstAsync<Account>(sql, new { id = id });
+
         }
     }
 }

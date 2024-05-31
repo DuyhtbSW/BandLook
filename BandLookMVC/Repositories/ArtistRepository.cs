@@ -215,7 +215,60 @@ public class ArtistRepository : IArtistRepository
         }
     }
 
+    public async Task Add(int accountId, string fullname, string catxe, string job, string email, string phone, string address, string description, string image)
+    {
+        var sql = @"INSERT INTO `bandlook`.`artist`
+                            (`account_id`,
+                            `fullname`,
+                            `catxe`,
+                            `job`,
+                            `rating`,
+                            `description`,
+                            `address`,
+                            `dob`,
+                            `phone`)
+                            VALUES
+                            (@accountId,
+                            @fullname,
+                            @catxe,
+                            @job,
+                            5,
+                            @description,
+                            @address,
+                            @dob,
+                            @phone);
+                            ";
 
+        var sql1 = @"INSERT INTO `artist_image`
+                        (`artist_id`,`image`)
+                        VALUES(@artistId, @image);";
+        try
+        {
+            using (var conn = _connectionFactory.CreateConnection())
+            {
+                var parameters = new
+                {
+                    accountId,
+                    fullname,
+                    catxe,
+                    job,
+                    description,
+                    address,
+                     dob = "07-12-1995",
+                    phone,
+                };
 
+                await conn.ExecuteAsync(sql, parameters);
 
+                var artistId = conn.QueryFirstAsync("SELECT id FROM bandlook.artist order by id desc limit 1;");
+
+                await conn.ExecuteAsync(sql1, new { artistId.Result, image });
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Error occurred while adding artist schedule.");
+            throw;
+        }
+    }
 }
