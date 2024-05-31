@@ -260,9 +260,9 @@ public class ArtistRepository : IArtistRepository
 
                 await conn.ExecuteAsync(sql, parameters);
 
-                var artistId = conn.QueryFirstAsync("SELECT id FROM bandlook.artist order by id desc limit 1;");
+                var artistId = conn.QueryFirstAsync<int>("SELECT id FROM bandlook.artist order by id desc limit 1;").Result;
 
-                await conn.ExecuteAsync(sql1, new { artistId.Result, image });
+                await conn.ExecuteAsync(sql1, new { artistId, image });
             }
         }
         catch (Exception e)
