@@ -13,11 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93aa79e8-273b-417b-ada8-d67a579718f9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/AccountRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/AccountRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IAccountRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IAccountRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout1.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout1.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Admin/User.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Admin/User.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +186,7 @@
       <workItem from="1717180792788" duration="854000" />
       <workItem from="1717420191435" duration="596000" />
       <workItem from="1717610111905" duration="330000" />
-      <workItem from="1717685349500" duration="7990000" />
+      <workItem from="1717685349500" duration="8301000" />
     </task>
     <servers />
   </component>
@@ -507,10 +506,10 @@
           <line>69</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\AdminController.cs" initialLine="35" containingFunctionPresentation="Method 'Reject'">
             <startOffsets>
-              <option value="2123" />
+              <option value="2146" />
             </startOffsets>
             <endOffsets>
-              <option value="2153" />
+              <option value="2176" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="61" />

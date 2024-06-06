@@ -58,6 +58,19 @@ WHERE `id` = @id;
         }
     }
 
+    public async Task Deactivate(int id, int status)
+    {
+        using (var conn = _connectionFactory.CreateConnection())
+        {
+            var sql = @"UPDATE `account`
+SET
+`status` = @status
+WHERE `id` = @id; ";
+
+            await conn.ExecuteAsync(sql, new {id, status });
+        }
+    }
+
     public async Task<Account> Detail(int id)
     {
         using (var conn = _connectionFactory.CreateConnection())

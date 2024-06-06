@@ -53,9 +53,9 @@ public class AdminController : Controller
         _accountRepository.Update(id, roleId, username, email);
         return RedirectToAction("User"); // Use RedirectToAction instead of View to reload the request list.
     }
-    public IActionResult DeactivateUser(int id)
+    public IActionResult DeactivateUser(int id, int status)
     {
-        _requestRepository.Confirm(id);
+        _accountRepository.Deactivate(id, status);
         return RedirectToAction("User"); // Use RedirectToAction instead of View to reload the request list.
     }
     
