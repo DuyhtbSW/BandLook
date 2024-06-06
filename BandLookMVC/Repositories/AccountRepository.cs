@@ -1,4 +1,5 @@
 ﻿using BandLookMVC.Request;
+using BandLookMVC.Response;
 using BrandLook.Entities;
 using Dapper;
 
@@ -41,6 +42,22 @@ public class AccountRepository : IAccountRepository
         }
     }
 
+    public async Task Update(int id, int roleId, string username, string email)
+    {
+        using (var conn = _connectionFactory.CreateConnection())
+        {
+            var sql = @"UPDATE `account`
+SET
+`role_id` = @roleId,
+`user_name` = @username,
+`email` = @email
+WHERE `id` = @id;
+                ";
+
+            await conn.ExecuteAsync(sql, new { roleId, username, email, id });
+        }
+    }
+
     public async Task<Account> Detail(int id)
     {
         using (var conn = _connectionFactory.CreateConnection())
@@ -50,6 +67,18 @@ public class AccountRepository : IAccountRepository
             WHERE id = @id";
 
             return await conn.QueryFirstAsync<Account>(sql, new { id = id });
+
+        }
+    }
+
+    public async Task<IEnumerable<ListUserResponse>> List()
+    {
+        using (var conn = _connectionFactory.CreateConnection())
+        {
+            var sql = @"
+            SELECT * FROM Account";
+
+            return await conn.QueryAsync<ListUserResponse>(sql );
 
         }
     }

@@ -15,10 +15,9 @@
     <list default="true" id="93aa79e8-273b-417b-ada8-d67a579718f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/PaymentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/PaymentController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Admin/Request.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Admin/Request.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/AccountRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/AccountRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IAccountRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IAccountRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout1.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout1.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/wwwroot/app/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/wwwroot/app/css/app.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +187,7 @@
       <workItem from="1717180792788" duration="854000" />
       <workItem from="1717420191435" duration="596000" />
       <workItem from="1717610111905" duration="330000" />
-      <workItem from="1717685349500" duration="5747000" />
+      <workItem from="1717685349500" duration="7990000" />
     </task>
     <servers />
   </component>
@@ -492,26 +491,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs</url>
-          <line>37</line>
+          <line>46</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\AdminController.cs" initialLine="29" containingFunctionPresentation="Method 'Confirm'">
             <startOffsets>
-              <option value="905" />
+              <option value="1185" />
             </startOffsets>
             <endOffsets>
-              <option value="936" />
+              <option value="1216" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs</url>
-          <line>49</line>
+          <line>69</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\AdminController.cs" initialLine="35" containingFunctionPresentation="Method 'Reject'">
             <startOffsets>
-              <option value="1347" />
+              <option value="2123" />
             </startOffsets>
             <endOffsets>
-              <option value="1377" />
+              <option value="2153" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="61" />
@@ -570,13 +569,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs</url>
-          <line>38</line>
+          <line>47</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\AdminController.cs" initialLine="30" containingFunctionPresentation="Method 'Confirm'">
             <startOffsets>
-              <option value="945" />
+              <option value="1225" />
             </startOffsets>
             <endOffsets>
-              <option value="980" />
+              <option value="1260" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="66" />
