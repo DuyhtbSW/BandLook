@@ -14,13 +14,12 @@
   <component name="ChangeListManager">
     <list default="true" id="93aa79e8-273b-417b-ada8-d67a579718f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IRequestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IRequestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/RequestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/RequestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Payment/Pay.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Payment/Pay.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/wwwroot/app/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/wwwroot/app/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/wwwroot/app/css/nice-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/wwwroot/app/css/nice-select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IArtistRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IArtistRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Artist/List.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Artist/List.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +185,11 @@
       <workItem from="1716692026135" duration="8600000" />
       <workItem from="1716822234209" duration="9068000" />
       <workItem from="1716913915648" duration="5004000" />
-      <workItem from="1717166866801" duration="10606000" />
+      <workItem from="1717166866801" duration="11477000" />
+      <workItem from="1717180792788" duration="854000" />
+      <workItem from="1717420191435" duration="596000" />
+      <workItem from="1717610111905" duration="330000" />
+      <workItem from="1717685349500" duration="3167000" />
     </task>
     <servers />
   </component>
@@ -373,65 +376,65 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
-          <line>177</line>
+          <line>247</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="177" containingFunctionPresentation="Method 'DeleteArtistSchedule'">
             <startOffsets>
-              <option value="6588" />
+              <option value="8687" />
             </startOffsets>
             <endOffsets>
-              <option value="6632" />
+              <option value="8731" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
-          <line>178</line>
+          <line>248</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="178" containingFunctionPresentation="Method 'DeleteArtistSchedule'">
             <startOffsets>
-              <option value="6649" />
+              <option value="8748" />
             </startOffsets>
             <endOffsets>
-              <option value="6658" />
+              <option value="8757" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
-          <line>206</line>
+          <line>276</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="206" containingFunctionPresentation="Method 'AddArtistSchedule'">
             <startOffsets>
-              <option value="7566" />
+              <option value="9665" />
             </startOffsets>
             <endOffsets>
-              <option value="7615" />
+              <option value="9714" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
-          <line>207</line>
+          <line>277</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="207" containingFunctionPresentation="Method 'AddArtistSchedule'">
             <startOffsets>
-              <option value="7632" />
+              <option value="9731" />
             </startOffsets>
             <endOffsets>
-              <option value="7641" />
+              <option value="9740" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
-          <line>197</line>
+          <line>267</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="197" containingFunctionPresentation="Method 'AddArtistSchedule'">
             <startOffsets>
-              <option value="7296" />
+              <option value="9395" />
             </startOffsets>
             <endOffsets>
-              <option value="7548" />
+              <option value="9647" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="50" />
@@ -464,13 +467,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
-          <line>190</line>
+          <line>260</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="190" containingFunctionPresentation="Method 'AddArtistSchedule'">
             <startOffsets>
-              <option value="6996" />
+              <option value="9095" />
             </startOffsets>
             <endOffsets>
-              <option value="7173" />
+              <option value="9272" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="53" />
@@ -617,6 +620,45 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
+          <line>332</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="262" containingFunctionPresentation="Method 'Add'">
+            <startOffsets>
+              <option value="11531" />
+            </startOffsets>
+            <endOffsets>
+              <option value="11639" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
+          <line>334</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="264" containingFunctionPresentation="Method 'Add'">
+            <startOffsets>
+              <option value="11657" />
+            </startOffsets>
+            <endOffsets>
+              <option value="11712" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs</url>
+          <line>330</line>
+          <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Repositories\ArtistRepository.cs" initialLine="260" containingFunctionPresentation="Method 'Add'">
+            <startOffsets>
+              <option value="11472" />
+            </startOffsets>
+            <endOffsets>
+              <option value="11513" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="72" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

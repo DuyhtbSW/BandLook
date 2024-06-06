@@ -1,4 +1,5 @@
-﻿using BandLookMVC.Response;
+﻿using System.Text;
+using BandLookMVC.Response;
 using BrandLook.Entities;
 using Dapper;
 
@@ -69,7 +70,7 @@ public class ArtistRepository : IArtistRepository
             SELECT a.id, a.fullname, a.job, a.address, a.catxe, a.description, a.phone, a.rating, a.dob, am.image
             FROM artist a 
             JOIN artist_image am ON a.id = am.artist_id 
-            WHERE a.account_id = @id";
+            WHERE a.id = @id";
 
             var artistDictionary = new Dictionary<int, ArtistDetailResponse>();
 
@@ -93,7 +94,76 @@ public class ArtistRepository : IArtistRepository
             return artistDictionary.Values.FirstOrDefault();
         }
     }
-    
+
+    public async Task<List<ListArtistResponse>> List(string fullname, string job, string address, string sortBy)
+    {
+        using (var conn = _connectionFactory.CreateConnection())
+        {
+            var query = new StringBuilder();
+            query.Append(@"
+            WITH ArtistImages AS (
+                SELECT 
+                    a.id AS Id, 
+                    m.image, 
+                    a.catxe, 
+                    a.job, 
+                    a.rating, 
+                    a.description, 
+                    a.address, 
+                    a.dob, 
+                    a.phone,
+                    a.fullname,    
+                    ROW_NUMBER() OVER (PARTITION BY a.id ORDER BY m.image) AS rn
+                FROM 
+                    artist a 
+                LEFT JOIN 
+                    artist_image m 
+                ON 
+                    a.id = m.artist_id
+            )
+            SELECT 
+                Id, 
+                image, 
+                catxe, 
+                job, 
+                rating, 
+                description, 
+                address, 
+                fullname,
+                dob, 
+                phone
+            FROM 
+                ArtistImages
+            WHERE 
+                rn = 1 AND 1=1");
+
+            if (!string.IsNullOrEmpty(fullname))
+            {
+                query.Append(" AND fullname LIKE @fullname");
+                fullname = "%" + fullname + "%";
+            }
+            if (!string.IsNullOrEmpty(job))
+            {
+                query.Append(" AND job LIKE @job");
+                job = "%" + job + "%";
+            }
+            if (!string.IsNullOrEmpty(address))
+            {
+                query.Append(" AND address = @address");
+            }
+
+            sortBy = (sortBy?.ToLower() == "desc") ? "DESC" : "ASC";
+            query.Append(" ORDER BY catxe " + sortBy);
+
+            var sql = query.ToString();
+            var parameters = new { fullname, job, address };
+
+            return (await conn.QueryAsync<ListArtistResponse>(sql, parameters)).ToList();
+        }
+    }
+
+
+
     public async Task<List<Schedule>> GetArtistSchedule(int artistId)
     {
         using (var conn = _connectionFactory.CreateConnection())

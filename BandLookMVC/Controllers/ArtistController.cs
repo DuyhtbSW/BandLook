@@ -41,9 +41,10 @@ public class ArtistController : Controller
         return Json(bookings);
     }
     
-    public async Task<IActionResult> List()
+    public async Task<IActionResult> List(string? fullname, string? job, string? address, string? sortBy)
     {
-        return View();
+        var result = await _artistRepository.List(fullname, job, address, sortBy);
+        return View(result);
     }
 
 }

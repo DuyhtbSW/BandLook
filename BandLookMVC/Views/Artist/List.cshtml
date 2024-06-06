@@ -23,113 +23,141 @@
 <!-- Widget archieve tour -->
 <section class="archieve-tour">
 <div class="tf-container">
-<form action="/" class="tf-my-listing1 mb-37">
+<form action="/Artist/List" class="tf-my-listing1 mb-37" id="filter-form">
     <div class="row align-center">
         <div class="col-md-8">
             <div class="flex-three filter-tour-package">
                 <div class="nice-select" tabindex="0">
-                    <span class="current">Tất cả</span>
-                    <ul class="list">
-                        <li data-value="" class="option selected focus">All Filter</li>
-                        <li data-value="all-filter1" class="option">All Filter 1</li>
-                        <li data-value="all-filter2" class="option">All Filter 2</li>
-                    </ul>
-                </div>
-                <div class="nice-select" tabindex="0">
                     <span class="current">Nghề nghiệp</span>
-                    <ul class="list">
-                        <li data-value="" class="option selected focus">Dates</li>
-                        <li data-value="date" class="option">Dates</li>
-                        <li data-value="date1" class="option">Dates</li>
+                    <ul class="list" id="job-list">
+                        <li data-value="" class="option">Tất cả</li>
+                        <li data-value="diễn viên" class="option">Diễn viên</li>
+                        <li data-value="ca sĩ" class="option">Ca sĩ</li>
+                        <li data-value="nhạc sĩ" class="option">Nhạc sĩ</li>
+                        <li data-value="MC" class="option">MC</li>
+                        <li data-value="streamer" class="option">Streamer</li>
+                        <li data-value="DJ" class="option">DJ</li>
+                        <li data-value="Idol" class="option">Idol</li>
                     </ul>
                 </div>
                 <div class="nice-select" tabindex="0">
                     <span class="current">Vị trí</span>
-                    <ul class="list">
-                        <li data-value="" class="option selected focus">Hà Nội</li>
-                        <li data-value="type" class="option">Đà Nẵng</li>
-                        <li data-value="type" class="option">Hồ Chí Minh</li>
+                    <ul class="list" id="location-list">
+                        <li data-value="Tất cả" class="option">Tất cả</li>
+                        <li data-value="Hà Nội" class="option">Hà Nội</li>
+                        <li data-value="Đà Nẵng" class="option">Đà Nẵng</li>
+                        <li data-value="Hồ Chí Minh" class="option">Hồ Chí Minh</li>
                     </ul>
                 </div>
                 <div class="nice-select" tabindex="0">
                     <span class="current">Cát xê</span>
-                    <ul class="list">
-                        <li data-value="Recently Added" class="option">Mặc định</li>
-                        <li data-value="" class="option selected focus">Tăng dần</li>
-                        <li data-value="new" class="option">Giảm dần</li>
+                    <ul class="list" id="salary-list">
+                        <li data-value="DESC" class="option">Mặc định</li>
+                        <li data-value="asc" class="option">Tăng dần</li>
+                        <li data-value="desc" class="option">Giảm dần</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+    <input type="hidden" name="fullname" value="">
+    <input type="hidden" name="job" id="job-input" value="">
+    <input type="hidden" name="address" id="location-input" value="">
+    <input type="hidden" name="sortBy" id="salary-input" value="">
 </form>
+
+<script>
+document.querySelectorAll('#job-list .option').forEach(item => {
+    item.addEventListener('click', function() {
+        document.getElementById('job-input').value = this.getAttribute('data-value');
+        document.getElementById('filter-form').submit();
+    });
+});
+
+document.querySelectorAll('#location-list .option').forEach(item => {
+    item.addEventListener('click', function() {
+        document.getElementById('location-input').value = this.getAttribute('data-value');
+        document.getElementById('filter-form').submit();
+    });
+});
+
+document.querySelectorAll('#salary-list .option').forEach(item => {
+    item.addEventListener('click', function() {
+        document.getElementById('salary-input').value = this.getAttribute('data-value');
+        document.getElementById('filter-form').submit();
+    });
+});
+</script>
+
 <div class="row">
     
-    
-    <div class="col-sm-6 col-xl-3 mb-32">
-        <div class="tour-listing box-sd">
-            <a href="tour-single.html" class="tour-listing-image">
-                <div class="badge-top flex-two">
-                    <span class="feature">Nổi bật</span>
-                </div>
-                <img src="./assets/images/travel-list/16.jpg" alt="Image Listing">
-
-            </a>
-            <div class="tour-listing-content">
-                <span class="map">Job</span>
-                <h3 class="title-tour-list">
-                    <a href="tour-single.html">
-                        Tên
-                    </a>
-                </h3>
-                <div class="review">
-                    
-                    <span>sao</span>
-                </div>
-                <div class="icon-box flex-three">
-                    <div class="icons flex-three">
-                        <span>Vị trí</span>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="col-sm-6 col-xl-3 mb-32">
+            <div class="tour-listing box-sd">
+                <a href="@Url.Action("Detail", "Artist", new { id = Model[i].Id })" class="tour-listing-image">
+                    <div class="badge-top flex-two">
+                        <span class="feature">Nổi bật</span>
                     </div>
-                   
-                </div>
-                <div class="flex-two">
-                    <div class="price-box flex-three">
-                        <p> <span class="price-sale">$169.00</span></p>
+                    <img src="@Model[i].Image" style="height: 24rem; object-fit: cover;" alt="Image Listing">
+
+                </a>
+                <div class="tour-listing-content">
+                    <span class="map">@Model[i].Job</span>
+                    <h3 class="title-tour-list">
+                        <a href="@Url.Action("Detail", "Artist", new { id = Model[i].Id })">
+                            @Model[i].Fullname
+                        </a>
+                    </h3>
+                    <div class="review">
+
+                        <span>@Model[i].Rating sao</span>
+                    </div>
+                    <div class="icon-box flex-three">
+                        <div class="icons flex-three">
+                            <span>@Model[i].Address</span>
+                        </div>
+
+                    </div>
+                    <div class="flex-two">
+                        <div class="price-box flex-three">
+                            <p> <span class="price-sale">@Model[i].Catxe VND</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    
+    }
+
+
 
 </div>
-<div class="row mt-20">
-    <div class="col-md-12 ">
-        <ul class="tf-pagination flex-five">
-            <li>
-                <a class="pages-link" href="#">
-                    Trước
-                </a>
-            </li>
-            <li>
-                <a class="pages-link" href="#">1</a>
-            </li>
-            <li class="pages-item active" aria-current="page">
-                <a class="pages-link" href="#">2</a>
-            </li>
-            <li>
-                <a class="pages-link" href="#">3</a>
-            </li>
-            <li>
-                <a class="pages-link" href="#">
-                    Tiếp
-                </a>
-            </li>
-        </ul>
-
-    </div>
-</div>
+@* <div class="row mt-20"> *@
+@*     <div class="col-md-12 "> *@
+@*         <ul class="tf-pagination flex-five"> *@
+@*             <li> *@
+@*                 <a class="pages-link" href="#"> *@
+@*                     Trước *@
+@*                 </a> *@
+@*             </li> *@
+@*             <li> *@
+@*                 <a class="pages-link" href="#">1</a> *@
+@*             </li> *@
+@*             <li class="pages-item active" aria-current="page"> *@
+@*                 <a class="pages-link" href="#">2</a> *@
+@*             </li> *@
+@*             <li> *@
+@*                 <a class="pages-link" href="#">3</a> *@
+@*             </li> *@
+@*             <li> *@
+@*                 <a class="pages-link" href="#"> *@
+@*                     Tiếp *@
+@*                 </a> *@
+@*             </li> *@
+@*         </ul> *@
+@* *@
+@*     </div> *@
+@* </div> *@
 </div>
 </section>
 
