@@ -14,12 +14,11 @@
   <component name="ChangeListManager">
     <list default="true" id="93aa79e8-273b-417b-ada8-d67a579718f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrandLook/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/ArtistController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/ArtistRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IArtistRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Repositories/Interfaces/IArtistRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Artist/List.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Artist/List.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BandLookMVC/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Controllers/PaymentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Controllers/PaymentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Admin/Request.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Admin/Request.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout1.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/Views/Shared/_Layout1.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BandLookMVC/wwwroot/app/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/BandLookMVC/wwwroot/app/css/app.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +188,7 @@
       <workItem from="1717180792788" duration="854000" />
       <workItem from="1717420191435" duration="596000" />
       <workItem from="1717610111905" duration="330000" />
-      <workItem from="1717685349500" duration="3167000" />
+      <workItem from="1717685349500" duration="5747000" />
     </task>
     <servers />
   </component>
@@ -493,26 +492,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs</url>
-          <line>29</line>
+          <line>37</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\AdminController.cs" initialLine="29" containingFunctionPresentation="Method 'Confirm'">
             <startOffsets>
-              <option value="615" />
+              <option value="905" />
             </startOffsets>
             <endOffsets>
-              <option value="646" />
+              <option value="936" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs</url>
-          <line>35</line>
+          <line>49</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\AdminController.cs" initialLine="35" containingFunctionPresentation="Method 'Reject'">
             <startOffsets>
-              <option value="820" />
+              <option value="1347" />
             </startOffsets>
             <endOffsets>
-              <option value="850" />
+              <option value="1377" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="61" />
@@ -571,13 +570,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BandLookMVC/Controllers/AdminController.cs</url>
-          <line>30</line>
+          <line>38</line>
           <properties documentPath="C:\Users\hatda\RiderProjects\BrandLook\BandLookMVC\Controllers\AdminController.cs" initialLine="30" containingFunctionPresentation="Method 'Confirm'">
             <startOffsets>
-              <option value="655" />
+              <option value="945" />
             </startOffsets>
             <endOffsets>
-              <option value="690" />
+              <option value="980" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="66" />

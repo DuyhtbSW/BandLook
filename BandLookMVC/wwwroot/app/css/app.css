@@ -5058,7 +5058,7 @@
   width: 100%;
   text-align: center;
 }
-.has-dashboard .profile-dashboard .my-booking-wrap .booking-table-title li:first-child {
+.has-dashboard .profile-dashboard .my-booking-wrap .booking-table-title {
   min-width: 400px;
   text-align: left;
 }

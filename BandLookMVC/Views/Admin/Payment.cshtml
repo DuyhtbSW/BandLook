@@ -1,0 +1,93 @@
+﻿@using BandLookMVC.Response
+
+@{
+    Layout = "_Layout1";
+}
+<main id="main">
+    <section class="profile-dashboard">
+        <div class="inner-header mb-40">
+            <h3 class="title">Quản lý thanh toán</h3>
+            <p class="des">Quản lý trạng thái thanh toán của booking</p>
+        </div>
+        <div class="my-booking-wrap ">
+            <ul class="booking-table-title flex-three">
+                <li>
+                    <p>Email</p>
+                </li>
+                <li>
+                    <p>Thời gian</p>
+                </li>
+                <li>
+                    <p>Tổng</p>
+                </li>
+                <li>
+                    <p>Số điện thoại</p>
+                </li>
+                <li>
+                    <p>Nghệ sĩ</p>
+                </li>
+                <li>
+                    <p>Trạng thái</p>
+                </li>
+                <li>
+                    <p>Hình thức</p>
+                </li>
+                <li>
+                    <p>Action</p>
+                </li>
+            </ul>
+            <ul class="booking-table-content mb-60">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <li class="flex-three">
+                        <div class="booking-list-table">
+                            <p class="date-gues">@Model[i].Email</p>
+                        </div>
+                        
+                        <div class="booking-list-table">
+                            <p class="date-gues">@Model[i].Pay_time</p>
+                        </div>
+                        <div class="booking-list-table">
+                            <p class="date-gues">@Model[i].Price</p>
+                        </div>
+                        <div class="booking-list-table">
+                            <p class="date-gues">@Model[i].Phone</p>
+                        </div>
+                        <div class="booking-list-table">
+                                                    <p class="date-gues">@Model[i].Fullname</p>
+                                                </div>
+                        <div class="booking-list-table">
+                            @if (Model[i].Status == 1)
+                            {
+                                <p class="status"  style="background-color: forestgreen;">Thành công</p>
+                            }
+                            else @if (Model[i].Status == 0)
+                            {
+                                <p class="status" style="background-color: lightgray;">Chưa xác nhận</p>
+                            }
+                            else @if (Model[i].Status == -1)
+                            {
+                                <p class="status" style="background-color: red;">Thất bại</p>
+                            }
+                        </div>
+                        <div class="booking-list-table">
+                                                                            <p class="date-gues">@Model[i].Type</p>
+                                                                        </div>
+                        <div class="flex-five action-wrap">
+                            <div class="action flex-five">
+                                <a href="@Url.Action("PaymentConfirm", "Admin", new { id = @Model[i].Id, status = 1 })">
+                                    <i class="fa-solid fa-square-check"></i>
+                                </a>
+                               
+                            </div>
+                             <div class="action flex-five">
+                                                                                            <a href="@Url.Action("PaymentConfirm", "Admin", new { id = @Model[i].Id, status = -1})"> <i class="fa-solid fa-circle-xmark"></i></a>
+                                                                                        </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+
+</main>
