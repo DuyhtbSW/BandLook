@@ -1,4 +1,5 @@
 using BandLookMVC;
+using BandLookMVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ builder.Logging.AddDebug();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddScoped<IVNPayPaymentService, VNPayPaymentService>();
 
 builder.Services.AddSession(options =>
 {

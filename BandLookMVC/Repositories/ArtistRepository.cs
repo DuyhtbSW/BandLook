@@ -95,72 +95,78 @@ public class ArtistRepository : IArtistRepository
         }
     }
 
-    public async Task<List<ListArtistResponse>> List(string fullname, string job, string address, string sortBy)
+    public async Task<(List<ListArtistResponse> Artists, int TotalCount)> List(string fullname, string job, string address, string sortBy, int page, int pageSize)
+{
+    using (var conn = _connectionFactory.CreateConnection())
     {
-        using (var conn = _connectionFactory.CreateConnection())
-        {
-            var query = new StringBuilder();
-            query.Append(@"
-            WITH ArtistImages AS (
-                SELECT 
-                    a.id AS Id, 
-                    m.image, 
-                    a.catxe, 
-                    a.job, 
-                    a.rating, 
-                    a.description, 
-                    a.address, 
-                    a.dob, 
-                    a.phone,
-                    a.fullname,    
-                    ROW_NUMBER() OVER (PARTITION BY a.id ORDER BY m.image) AS rn
-                FROM 
-                    artist a 
-                LEFT JOIN 
-                    artist_image m 
-                ON 
-                    a.id = m.artist_id
-            )
+        var query = new StringBuilder();
+        query.Append(@"
+        WITH ArtistImages AS (
             SELECT 
-                Id, 
-                image, 
-                catxe, 
-                job, 
-                rating, 
-                description, 
-                address, 
-                fullname,
-                dob, 
-                phone
+                a.id AS Id, 
+                m.image, 
+                a.catxe, 
+                a.job, 
+                a.rating, 
+                a.description, 
+                a.address, 
+                a.dob, 
+                a.phone,
+                a.fullname,    
+                ROW_NUMBER() OVER (PARTITION BY a.id ORDER BY m.image) AS rn
             FROM 
-                ArtistImages
-            WHERE 
-                rn = 1 AND 1=1");
+                artist a 
+            LEFT JOIN 
+                artist_image m 
+            ON 
+                a.id = m.artist_id
+        )
+        SELECT 
+            Id, 
+            image, 
+            catxe, 
+            job, 
+            rating, 
+            description, 
+            address, 
+            fullname,
+            dob, 
+            phone
+        FROM 
+            ArtistImages
+        WHERE 
+            rn = 1 AND 1=1");
 
-            if (!string.IsNullOrEmpty(fullname))
-            {
-                query.Append(" AND fullname LIKE @fullname");
-                fullname = "%" + fullname + "%";
-            }
-            if (!string.IsNullOrEmpty(job))
-            {
-                query.Append(" AND job LIKE @job");
-                job = "%" + job + "%";
-            }
-            if (!string.IsNullOrEmpty(address))
-            {
-                query.Append(" AND address = @address");
-            }
-
-            sortBy = (sortBy?.ToLower() == "desc") ? "DESC" : "ASC";
-            query.Append(" ORDER BY catxe " + sortBy);
-
-            var sql = query.ToString();
-            var parameters = new { fullname, job, address };
-
-            return (await conn.QueryAsync<ListArtistResponse>(sql, parameters)).ToList();
+        if (!string.IsNullOrEmpty(fullname))
+        {
+            query.Append(" AND fullname LIKE @fullname");
+            fullname = "%" + fullname + "%";
         }
+        if (!string.IsNullOrEmpty(job))
+        {
+            query.Append(" AND job LIKE @job");
+            job = "%" + job + "%";
+        }
+        if (!string.IsNullOrEmpty(address))
+        {
+            query.Append(" AND address = @address");
+        }
+
+        sortBy = (sortBy?.ToLower() == "desc") ? "DESC" : "ASC";
+        query.Append(" ORDER BY catxe " + sortBy);
+
+        var sql = query.ToString();
+        var parameters = new { fullname, job, address };
+
+        var artists = await conn.QueryAsync<ListArtistResponse>(sql, parameters);
+
+        var pagedArtists = artists.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+        var totalCount = artists.Count();
+
+        return (pagedArtists, totalCount);
     }
+}
+
 
 
 

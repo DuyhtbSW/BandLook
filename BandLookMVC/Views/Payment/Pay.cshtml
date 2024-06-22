@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model BandLookMVC.Controllers.PaymentController.PaymentViewModel
 
-
 <div class="container d-lg-flex">
     <div class="box-1 bg-light user">
         <div class="box-inner-1 pb-3 mb-3 ">
@@ -71,8 +70,7 @@
                <p class="fw-bold">Chi tiết thanh toán</p>
                <p class="dis mb-3">Hoàn thành thông tin dưới đây để tiếp tục thanh toán</p>
            </div>
-           <form id="payment-form" action="Pay" method="POST">
-               <!-- Step 1 -->
+           <form id="payment-form" action="/Payment/VNPay" method="POST">
                <div class="step step-1">
                    <div class="mb-3">
                        <p class="dis fw-bold mb-2">Email</p>
@@ -88,21 +86,20 @@
                        <button type="button" class="btn btn-primary mt-2" onclick="nextStep()">Tiếp tục</button>
                    </div>
                </div>
-               <!-- Step 2 -->
                <div class="step step-2" style="display:none;">
                    <div class="address">
                        <div class="my-3">
                            <p class="dis fw-bold mb-2">Hình thức thanh toán</p>
                            <div>
-                               <input type="radio" id="payment-cash" name="payment-method" value="cash" required/>
+                               <input type="radio" id="payment-cash" name="paymentMethod" value="cash" required/>
                                <label for="payment-cash">Thanh toán bằng tiền mặt</label>
                            </div>
                            <div>
-                               <input type="radio" id="payment-vnpay" name="payment-method" value="vnpay" required/>
+                               <input type="radio" id="payment-vnpay" name="paymentMethod" value="vnpay" required/>
                                <label for="payment-vnpay">Thanh toán qua ví VNPay</label>
                            </div>
                            <div>
-                               <input type="radio" id="payment-momo" name="payment-method" value="momo" required/>
+                               <input type="radio" id="payment-momo" name="paymentMethod" value="momo" required/>
                                <label for="payment-momo">Thanh toán qua ví Momo</label>
                            </div>
                        </div>
@@ -116,55 +113,54 @@
                        </div>
                    </div>
                </div>
-               <!-- Step 3 -->
                <div class="step step-3" style="display:none;">
                    <div class="d-flex flex-column dis">
-                       <p class="fw-bold">Mã QR để thanh toán</p>
-                       <img src="https://homepage.momocdn.net/blogscontents/momo-upload-api-220810110042-637957260425550228.webp" alt="QR Code" class="qr-code-img">
                        <button type="submit" class="btn btn-primary mt-2">Xác nhận và Thanh toán</button>
                        <button type="button" class="btn btn-secondary mt-2" onclick="prevStep()">Quay lại</button>
                    </div>
                </div>
+               <input type="hidden" name="selectedDate" value="@Model.SelectedDate">
+               <input type="hidden" name="artistId" value="@Model.Artist.Id">
+               <input type="hidden" name="totalPrice" value="@Model.TotalPrice">
+               <input type="hidden" name="selectedTimeSlots" value="@string.Join(",", @Model.SelectedTimeSlots)">
            </form>
        </div>
    </div>
-
-
-
 </div>
+
 <script>
     function nextStep() {
         var currentStep = document.querySelector('.step:not([style*="display: none"])');
         var nextStep = currentStep.nextElementSibling;
-        
+
         if (validateStep(currentStep)) {
             currentStep.style.display = 'none';
-    
+
             // Nếu hiện tại là step 2 và chọn "cash", bỏ qua step 3
             if (currentStep.classList.contains('step-2')) {
-                var paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+                var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
                 if (paymentMethod === 'cash') {
                     document.getElementById('payment-form').submit();
                     return;
                 }
             }
-    
+
             if (nextStep) {
                 nextStep.style.display = 'block';
             }
         }
     }
-    
+
     function prevStep() {
         var currentStep = document.querySelector('.step:not([style*="display: none"])');
         var prevStep = currentStep.previousElementSibling;
-    
+
         if (prevStep) {
             currentStep.style.display = 'none';
             prevStep.style.display = 'block';
         }
     }
-    
+
     function validateStep(step) {
         var inputs = step.querySelectorAll('input[required]');
         for (var i = 0; i < inputs.length; i++) {
@@ -175,9 +171,8 @@
         }
         return true;
     }
-
-
 </script>
+
 <style>
 * {
     margin: 0;

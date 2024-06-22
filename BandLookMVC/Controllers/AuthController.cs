@@ -18,7 +18,15 @@ public class AuthController : Controller
     {
         return View();
     }
-    
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Clear(); 
+        HttpContext.Session.Remove("Username");
+        HttpContext.Session.Remove("Id");
+        HttpContext.Session.Remove("Email");
+        HttpContext.Session.Remove("RoleId");
+        return RedirectToAction("Home", "Home");
+    }
     [HttpPost]
     public IActionResult Login(LoginRequest request)
     {

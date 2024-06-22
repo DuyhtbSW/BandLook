@@ -40,11 +40,27 @@ public class ArtistController : Controller
 
         return Json(bookings);
     }
-    
-    public async Task<IActionResult> List(string? fullname, string? job, string? address, string? sortBy)
+    public class ArtistListViewModel
     {
-        var result = await _artistRepository.List(fullname, job, address, sortBy);
-        return View(result);
+        public List<ListArtistResponse> Artists { get; set; }
+        public int CurrentPage { get; set; }
+        public int TotalPages { get; set; }
     }
+
+    public async Task<IActionResult> List(string? fullname, string? job, string? address, string? sortBy, int page = 1, int pageSize = 4)
+    {
+        var result = await _artistRepository.List(fullname, job, address, sortBy, page, pageSize);
+        var totalPages = (int)Math.Ceiling(result.TotalCount / (double)pageSize);
+
+        var viewModel = new ArtistListViewModel
+        {
+            Artists = result.Artists,
+            CurrentPage = page,
+            TotalPages = totalPages
+        };
+
+        return View(viewModel);
+    }
+
 
 }

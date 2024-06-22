@@ -67,7 +67,7 @@ SET
 `status` = @status
 WHERE `id` = @id; ";
 
-            await conn.ExecuteAsync(sql, new {id, status });
+            await conn.ExecuteAsync(sql, new { id, status });
         }
     }
 
@@ -80,7 +80,6 @@ WHERE `id` = @id; ";
             WHERE id = @id";
 
             return await conn.QueryFirstAsync<Account>(sql, new { id = id });
-
         }
     }
 
@@ -91,8 +90,7 @@ WHERE `id` = @id; ";
             var sql = @"
             SELECT * FROM Account";
 
-            return await conn.QueryAsync<ListUserResponse>(sql );
-
+            return await conn.QueryAsync<ListUserResponse>(sql);
         }
     }
 }
