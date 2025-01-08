@@ -1,8 +1,10 @@
 # 🎶 BandLook
 
 **BandLook** là ứng dụng web giúp bạn dễ dàng **đặt lịch biểu diễn** cho các nghệ sĩ hoặc ban nhạc yêu thích. Được phát triển bằng **ASP.NET** và sử dụng **MySQL** làm cơ sở dữ liệu, BandLook mang đến trải nghiệm mượt mà và tiện lợi cho người dùng.
-![image](https://github.com/user-attachments/assets/bf076993-be83-45c6-96ba-28f69a9ddd20)
-![image](https://github.com/user-attachments/assets/32f49609-824c-4210-b97c-597e43aa8825)
+![image](https://github.com/user-attachments/assets/455c2e75-c927-4b47-ad75-1cc6a9525d9b)
+![image](https://github.com/user-attachments/assets/837391ba-8232-4980-8152-d8c5cb39fc99)
+
+
 
 ---
 
