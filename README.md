@@ -29,7 +29,7 @@
 
 1. **Clone repository**:
    ```bash
-   git clone https://github.com/username/BandLook.git
+   git clone https://github.com/DuyhtbSW/BandLook.git
    ```
 
 2. **Cài đặt MySQL**:
